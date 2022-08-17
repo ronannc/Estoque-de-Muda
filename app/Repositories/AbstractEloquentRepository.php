@@ -195,4 +195,9 @@ abstract class AbstractEloquentRepository implements BaseRepository
     {
         return $model->delete();
     }
+
+    public function all()
+    {
+        return $this->model->all();
+    }
 }

@@ -13,18 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get( '/', function () {
+    return view( 'welcome' );
+} );
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/seedling', \App\Http\Controllers\SeedlingController::class);
+Route::get( '/home', [ App\Http\Controllers\HomeController::class, 'index' ] )->name( 'home' );
+Route::resource( '/group', \App\Http\Controllers\GroupController::class );
+Route::resource( '/seedling', \App\Http\Controllers\GroupController::class );
 
 Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+Route::get( '/home', function () {
+    return view( 'home' );
+} )->name( 'home' )->middleware( 'auth' );
 

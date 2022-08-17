@@ -42,6 +42,10 @@ class  RepositoryServiceProvider extends ServiceProvider
             return new EloquentGroupRepository( new Group() );
         } );
 
+        $this->app->bind( Grou::class, function () {
+            return new EloquentGroupRepository( new Group() );
+        } );
+
         $this->app->bind( InventoryRepository::class, function () {
             return new EloquentInventoryRepository( new Inventory() );
         } );
