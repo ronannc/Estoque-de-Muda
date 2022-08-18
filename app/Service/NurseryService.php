@@ -2,13 +2,13 @@
 
 namespace App\Service;
 
-use App\Service\Contracts\BaseService;
+use App\Repositories\Contracts\NurseryRepository;
 
-abstract class AbstractService implements BaseService
+class NurseryService
 {
-    protected $repository;
+    protected $nurseryRepository;
 
-    public function __construct( $repository ) { $this->repository = $repository; }
+    public function __construct( NurseryRepository $nurseryRepository ) { $this->nurseryRepository = $nurseryRepository; }
 
     /**
      * @param array $data
@@ -17,7 +17,7 @@ abstract class AbstractService implements BaseService
     public function store( array $data )
     {
         try {
-            return $this->repository->save( $data );
+            return $this->nurseryRepository->save( $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -34,8 +34,8 @@ abstract class AbstractService implements BaseService
     public function update( array $data, $id )
     {
         try {
-            $model = $this->repository->findOne( $id );
-            return $this->repository->update( $model, $data );
+            $model = $this->nurseryRepository->findOne( $id );
+            return $this->nurseryRepository->update( $model, $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -51,8 +51,8 @@ abstract class AbstractService implements BaseService
     public function destroy( $id )
     {
         try {
-            $model = $this->repository->findOneOrFail( $id );
-            $this->repository->delete( $model );
+            $model = $this->nurseryRepository->findOneOrFail( $id );
+            $this->nurseryRepository->delete( $model );
             return [
                 'error'   => false,
                 'message' => 'Excluído com sucesso !!!'
@@ -71,7 +71,7 @@ abstract class AbstractService implements BaseService
     public function all()
     {
         try {
-            return $this->repository->all();
+            return $this->nurseryRepository->all();
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,

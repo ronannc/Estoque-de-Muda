@@ -2,13 +2,13 @@
 
 namespace App\Service;
 
-use App\Repositories\Contracts\GroupRepository;
+use App\Repositories\Contracts\SpecieRepository;
 
-class GroupService
+class SpecieService
 {
-    protected $groupRepository;
+    protected $specieRepository;
 
-    public function __construct( GroupRepository $groupRepository ) { $this->groupRepository = $groupRepository; }
+    public function __construct( SpecieRepository $specieRepository ) { $this->specieRepository = $specieRepository; }
 
     /**
      * @param array $data
@@ -17,7 +17,7 @@ class GroupService
     public function store( array $data )
     {
         try {
-            return $this->groupRepository->save( $data );
+            return $this->specieRepository->save( $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -34,8 +34,8 @@ class GroupService
     public function update( array $data, $id )
     {
         try {
-            $model = $this->groupRepository->findOne( $id );
-            return $this->groupRepository->update( $model, $data );
+            $model = $this->specieRepository->findOne( $id );
+            return $this->specieRepository->update( $model, $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -51,8 +51,8 @@ class GroupService
     public function destroy( $id )
     {
         try {
-            $model = $this->groupRepository->findOneOrFail( $id );
-            $this->groupRepository->delete( $model );
+            $model = $this->specieRepository->findOneOrFail( $id );
+            $this->specieRepository->delete( $model );
             return [
                 'error'   => false,
                 'message' => 'Excluído com sucesso !!!'
@@ -71,22 +71,7 @@ class GroupService
     public function all()
     {
         try {
-            return $this->groupRepository->all();
-        } catch ( \Exception $exception ) {
-            return [
-                'error'   => true,
-                'message' => $exception->getMessage()
-            ];
-        }
-    }
-
-    /**
-     * @return array
-     */
-    public function paginate()
-    {
-        try {
-            return $this->groupRepository->paginate();
+            return $this->specieRepository->all();
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,

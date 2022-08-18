@@ -200,4 +200,9 @@ abstract class AbstractEloquentRepository implements BaseRepository
     {
         return $this->model->all();
     }
+
+    public function paginate()
+    {
+        return $this->model->paginate();
+    }
 }
