@@ -12,8 +12,8 @@
         <div class="card-header">
             <h3 class="card-title">Edição</h3>
         </div>
-        <form action="{{ route('grupos.update', $data) }}"
-              id="form_sample_2"
+        <form action="{{ route('group.update', $data) }}"
+              id="form_validation"
               method="post"
               class="horizontal-form">
             {{ method_field('PUT') }}
@@ -22,10 +22,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-4">
-                            @include('components.input-nome')
-                        </div>
-                        <div class="col-4">
-                            @include('components.select-categoria')
+                            @include('components.input-name', ['required' => true])
                         </div>
                     </div>
                 </div>

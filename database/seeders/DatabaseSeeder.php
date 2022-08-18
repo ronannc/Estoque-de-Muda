@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Group;
+use App\Models\Nursery;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Group::factory( 1000 )->create();
+//        Group::factory( 1000 )->create();
+        Nursery::factory( 50 )->create();
     }
 }

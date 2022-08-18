@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSeedlingRequest;
-use App\Http\Requests\UpdateSeedlingRequest;
+use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\UpdateGroupRequest;
 use App\Models\Group;
-use App\Models\Nursery;
 use App\Service\GroupService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -42,28 +41,48 @@ class GroupController extends Controller
         return view( 'group.create' );
     }
 
-    public function store( StoreSeedlingRequest $request )
+    public function store( StoreGroupRequest $request )
     {
-        //
+        $resultFromStore = $this->service->store( $request->all() );
+
+        if ( !empty( $resultFromStore[ 'error' ] ) ) {
+            session()->flash( 'error', $resultFromStore[ 'message' ] );
+            return back();
+        }
+
+        session()->flash( 'status', 'Grupo registrado com sucesso!' );
+        return redirect( route( 'group.index' ) );
     }
 
-    public function show( Nursery $seedling )
+    public function edit( $id )
     {
-        //
+        $data = $this->service->findOne( $id );
+        return view( 'group.edit', compact( 'data' ) );
     }
 
-    public function edit( Nursery $seedling )
+    public function update( UpdateGroupRequest $request, Group $group )
     {
-        //
+        $resultFromStore = $this->service->update( $request->all(), $group );
+
+        if ( !empty( $resultFromStore[ 'error' ] ) ) {
+            session()->flash( 'error', $resultFromStore[ 'message' ] );
+            return back();
+        }
+
+        session()->flash( 'status', 'Grupo atualizado com sucesso!' );
+        return redirect( route( 'group.index' ) );
     }
 
-    public function update( UpdateSeedlingRequest $request, Nursery $seedling )
+    public function destroy( $id )
     {
-        //
-    }
+        $resultFrom = $this->service->destroy( $id );
 
-    public function destroy( Nursery $seedling )
-    {
-        //
+        if ( !empty( $resultFrom[ 'error' ] ) ) {
+            session()->flash( 'error', $resultFrom[ 'message' ] );
+            return back();
+        }
+
+        session()->flash( 'status', 'Grupo deletado com sucesso!' );
+        return back();
     }
 }

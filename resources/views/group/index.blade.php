@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Grupo')
+@section('title', 'Grupos')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Grupo</h1>
+    <h1 class="m-0 text-dark">Grupos</h1>
 @stop
 
 @section('content')

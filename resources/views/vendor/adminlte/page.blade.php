@@ -52,6 +52,11 @@
 @stop
 
 @section('adminlte_js')
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2();
+        });
+    </script>
     @stack('js')
     @yield('js')
 @stop

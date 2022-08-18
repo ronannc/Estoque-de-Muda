@@ -24,10 +24,7 @@
                         <div class="col-10">
                             <div class="row">
                                 <div class="col-4">
-                                    @include('components.input-nome')
-                                </div>
-                                <div class="col-4">
-                                    @include('components.select-categoria')
+                                    @include('components.input-name', ['required' => true])
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get( '/home', [ App\Http\Controllers\HomeController::class, 'index' ] )->name( 'home' );
 Route::resource( '/group', \App\Http\Controllers\GroupController::class );
-Route::resource( '/seedling', \App\Http\Controllers\GroupController::class );
+Route::resource( '/nursery', \App\Http\Controllers\NurseryController::class );
 
 Auth::routes();
 

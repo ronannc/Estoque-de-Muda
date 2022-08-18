@@ -31,10 +31,9 @@ class GroupService
      * @param $id
      * @return array
      */
-    public function update( array $data, $id )
+    public function update( array $data, $model )
     {
         try {
-            $model = $this->groupRepository->findOne( $id );
             return $this->groupRepository->update( $model, $data );
         } catch ( \Exception $exception ) {
             return [
@@ -87,6 +86,22 @@ class GroupService
     {
         try {
             return $this->groupRepository->paginate();
+        } catch ( \Exception $exception ) {
+            return [
+                'error'   => true,
+                'message' => $exception->getMessage()
+            ];
+        }
+    }
+
+    /**
+     * @param $id
+     * @return array|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findOne( $id )
+    {
+        try {
+            return $this->groupRepository->findOne( $id );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
