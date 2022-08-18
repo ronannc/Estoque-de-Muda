@@ -2,16 +2,19 @@
 
 namespace App\Providers;
 
+use App\Models\City;
 use App\Models\Group;
 use App\Models\Inventory;
 use App\Models\Nursery;
 use App\Models\Specie;
 use App\Models\User;
+use App\Repositories\Contracts\CityRepository;
 use App\Repositories\Contracts\GroupRepository;
 use App\Repositories\Contracts\InventoryRepository;
 use App\Repositories\Contracts\NurseryRepository;
 use App\Repositories\Contracts\SpecieRepository;
 use App\Repositories\Contracts\UserRepository;
+use App\Repositories\EloquentCityRepository;
 use App\Repositories\EloquentGroupRepository;
 use App\Repositories\EloquentInventoryRepository;
 use App\Repositories\EloquentNurseryRepository;
@@ -58,6 +61,10 @@ class  RepositoryServiceProvider extends ServiceProvider
             return new EloquentSpecieRepository( new Specie() );
         } );
 
+        $this->app->bind( CityRepository::class, function () {
+            return new EloquentCityRepository( new City() );
+        } );
+
         $this->app->bind( UserRepository::class, function () {
             return new EloquentUserRepository( new User() );
         } );
@@ -76,6 +83,7 @@ class  RepositoryServiceProvider extends ServiceProvider
             Specie::class,
             Nursery::class,
             Inventory::class,
+            City::class,
         ];
     }
 }

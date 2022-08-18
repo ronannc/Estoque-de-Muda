@@ -79,4 +79,20 @@ class SpecieService
             ];
         }
     }
+
+    /**
+     * @param $id
+     * @return array|\Illuminate\Database\Eloquent\Model|null
+     */
+    public function findOne( $id )
+    {
+        try {
+            return $this->specieRepository->findOne( $id );
+        } catch ( \Exception $exception ) {
+            return [
+                'error'   => true,
+                'message' => $exception->getMessage()
+            ];
+        }
+    }
 }
