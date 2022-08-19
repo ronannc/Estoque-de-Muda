@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNurseryRequest;
-use App\Http\Requests\UpdateNurseryRequest;
-use App\Models\Nursery;
-use App\Service\NurseryService;
+use App\Http\Requests\StoreSpecieRequest;
+use App\Http\Requests\UpdateSpecieRequest;
+use App\Models\Specie;
+use App\Service\SpecieService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class NurseryController extends Controller
+class SpecieController extends Controller
 {
     protected $service;
 
-    public function __construct( NurseryService $service )
+    public function __construct( SpecieService $service )
     {
         $this->middleware( 'auth' );
         $this->service = $service;
@@ -22,10 +22,10 @@ class NurseryController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Nursery::query()->with( 'city.state' ) )
+            return DataTables::eloquent( Specie::query()->with( 'group' ) )
                              ->addIndexColumn()
                              ->addColumn( 'action', function ( $row ) {
-                                 $btn = '<a href="' . route( 'nursery.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
+                                 $btn = '<a href="' . route( 'specie.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';
                                  return $btn;
                              } )
@@ -33,16 +33,16 @@ class NurseryController extends Controller
                              ->make( true );
         }
 
-        return view( 'nursery.index' );
+        return view( 'specie.index' );
     }
 
     public function create()
     {
         $extraData = $this->service->getExtraData();
-        return view( 'nursery.create', compact( 'extraData' ) );
+        return view( 'specie.create', compact( 'extraData' ) );
     }
 
-    public function store( StoreNurseryRequest $request )
+    public function store( StoreSpecieRequest $request )
     {
         $resultFromStore = $this->service->store( $request->all() );
 
@@ -52,19 +52,19 @@ class NurseryController extends Controller
         }
 
         session()->flash( 'status', 'Viveiro registrado com sucesso!' );
-        return redirect( route( 'nursery.index' ) );
+        return redirect( route( 'specie.index' ) );
     }
 
     public function edit( $id )
     {
         $data      = $this->service->findOne( $id );
         $extraData = $this->service->getExtraData();
-        return view( 'nursery.edit', compact( 'data', 'extraData' ) );
+        return view( 'specie.edit', compact( 'data', 'extraData' ) );
     }
 
-    public function update( UpdateNurseryRequest $request, Nursery $nursery )
+    public function update( UpdateSpecieRequest $request, Specie $specie )
     {
-        $resultFromStore = $this->service->update( $request->all(), $nursery );
+        $resultFromStore = $this->service->update( $request->all(), $specie );
 
         if ( !empty( $resultFromStore[ 'error' ] ) ) {
             session()->flash( 'error', $resultFromStore[ 'message' ] );
@@ -72,7 +72,7 @@ class NurseryController extends Controller
         }
 
         session()->flash( 'status', 'Viveiro atualizado com sucesso!' );
-        return redirect( route( 'nursery.index' ) );
+        return redirect( route( 'specie.index' ) );
     }
 
     public function destroy( $id )

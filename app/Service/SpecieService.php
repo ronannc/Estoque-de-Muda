@@ -2,13 +2,26 @@
 
 namespace App\Service;
 
+use App\Repositories\Contracts\GroupRepository;
 use App\Repositories\Contracts\SpecieRepository;
 
 class SpecieService
 {
     protected $specieRepository;
+    protected $groupRepository;
 
-    public function __construct( SpecieRepository $specieRepository ) { $this->specieRepository = $specieRepository; }
+    public function __construct( SpecieRepository $specieRepository, GroupRepository $groupRepository )
+    {
+        $this->specieRepository = $specieRepository;
+        $this->groupRepository  = $groupRepository;
+    }
+
+    public function getExtraData()
+    {
+        return [
+            'groups' => $this->groupRepository->all()
+        ];
+    }
 
     /**
      * @param array $data
