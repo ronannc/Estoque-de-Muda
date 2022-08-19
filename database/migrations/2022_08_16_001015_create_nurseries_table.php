@@ -19,6 +19,7 @@ class CreateNurseriesTable extends Migration
             $table->integer( 'city_id' )->nullable();
             $table->foreign( 'city_id' )->references( 'id' )->on( 'cities' );
             $table->string( 'address' )->nullable();
+            $table->string( 'neighborhood' )->nullable();
             $table->string( 'number' )->nullable();
             $table->softDeletes();
             $table->timestamps();

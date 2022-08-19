@@ -16,6 +16,7 @@ class Nursery extends Model
         'name',
         'city_id',
         'address',
+        'neighborhood',
         'number'
     ];
 

@@ -17,8 +17,6 @@ class CreateSpeciesTable extends Migration
             $table->id();
             $table->string( 'name' );
             $table->string( 'specie' )->nullable();
-            $table->unsignedBigInteger( 'nursery_id' );
-            $table->foreign( 'nursery_id' )->references( 'id' )->on( 'nurseries' );
             $table->unsignedBigInteger( 'group_id' );
             $table->foreign( 'group_id' )->references( 'id' )->on( 'groups' );
             $table->softDeletes();

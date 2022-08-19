@@ -15,14 +15,8 @@ class Specie extends Model
     protected $fillable = [
         'name',
         'specie',
-        'nursery_id',
         'group_id'
     ];
-
-    public function nursery(): BelongsTo
-    {
-        return $this->belongsTo( Nursery::class );
-    }
 
     public function group(): BelongsTo
     {

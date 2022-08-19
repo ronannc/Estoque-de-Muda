@@ -22,6 +22,8 @@ Auth::routes();
 Route::get( '/home', [ App\Http\Controllers\HomeController::class, 'index' ] )->name( 'home' );
 Route::resource( '/group', \App\Http\Controllers\GroupController::class );
 Route::resource( '/nursery', \App\Http\Controllers\NurseryController::class );
+Route::resource( '/specie', \App\Http\Controllers\SpecieController::class );
+Route::resource( '/inventory', \App\Http\Controllers\InventoryController::class );
 
 Auth::routes();
 

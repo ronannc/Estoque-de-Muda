@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Viveiros')
+@section('title', 'Especies')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Viveiros</h1>
+    <h1 class="m-0 text-dark">Especies</h1>
 @stop
 
 @section('content')
@@ -20,11 +20,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th>Endereço</th>
-                    <th>Bairro</th>
-                    <th>Número</th>
+                    <th>Especie</th>
+                    <th>Grupo</th>
                     <th>AÇÕES</th>
                 </tr>
                 </thead>
@@ -52,7 +49,7 @@
                 buttons: [
                     'pageLength'
                 ],
-                ajax: "{{ route('nursery.index') }}",
+                ajax: "{{ route('specie.index') }}",
                 columns: [
                     {
                         data: 'id',
@@ -65,29 +62,14 @@
                         title: 'Nome'
                     },
                     {
-                        data: 'city.name',
-                        name: 'city.name',
-                        title: 'Cidade'
+                        data: 'specie',
+                        name: 'specie',
+                        title: 'Especie'
                     },
                     {
-                        data: 'city.state.name',
-                        name: 'city.state.name',
-                        title: 'Estado'
-                    },
-                    {
-                        data: 'address',
-                        name: 'address',
-                        title: 'Edereço'
-                    },
-                    {
-                        data: 'neighborhood',
-                        name: 'neighborhood',
-                        title: 'Bairro'
-                    },
-                    {
-                        data: 'number',
-                        name: 'number',
-                        title: 'Número'
+                        data: 'group.name',
+                        name: 'group.name',
+                        title: 'Grupo'
                     },
                     {
                         data: 'action',
@@ -100,7 +82,7 @@
 
             dataTable.on('click', '.delete', function () {
                 var id = $(this).data("id");
-                $('#formDelete').attr('action', "nursery/" + id + "")
+                $('#formDelete').attr('action', "specie/" + id + "")
                 $('#confirmDiolog').modal('show')
             });
         });

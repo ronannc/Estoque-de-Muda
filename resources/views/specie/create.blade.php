@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Viveiros')
+@section('title', 'Especies')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Viveiros</h1>
+    <h1 class="m-0 text-dark">Especies</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="card-header">
             <h3 class="card-title">Cadastro</h3>
         </div>
-        <form action="{{ route('nursery.store') }}"
+        <form action="{{ route('specie.store') }}"
               id="form_validation"
               method="post"
               class="horizontal-form">
@@ -23,28 +23,18 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-4">
                                     @include('components.input-name', ['required' => true])
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="row">
                                 <div class="col-4">
-                                    @include('components.select-city', ['required' => true])
-                                </div>
-                                <div class="col-4">
-                                    @include('components.input-address', ['required' => true])
+                                    @include('components.input-specie', ['required' => true])
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-4">
-                                    @include('components.input-neighborhood', ['required' => true])
-                                </div>
-                                <div class="col-4">
-                                    @include('components.input-number', ['required' => true])
+                                <div class="col-8">
+                                    @include('components.select-group', ['required' => true])
                                 </div>
                             </div>
                         </div>

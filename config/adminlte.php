@@ -290,7 +290,7 @@ return [
         [
             'text'    => 'Viveiros',
             'url'     => '#',
-            'icon'    => 'fas fa-fw fa-object-group',
+            'icon'    => 'fas fa-fw fa-store',
             //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
             'submenu' => [
                 [
@@ -302,6 +302,46 @@ return [
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'nursery/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                    //                    'can'  => 'Criar Grupos'
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Especies',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-seedling',
+            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'specie',
+                    'icon' => 'fas fa-fw fa-list',
+                    //                    'can'  => 'Listar Grupos'
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'specie/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                    //                    'can'  => 'Criar Grupos'
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Inventario',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-dolly-flatbed',
+            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'inventory',
+                    'icon' => 'fas fa-fw fa-list',
+                    //                    'can'  => 'Listar Grupos'
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'inventory/create',
                     'icon' => 'fas fa-fw fa-plus',
                     //                    'can'  => 'Criar Grupos'
                 ],

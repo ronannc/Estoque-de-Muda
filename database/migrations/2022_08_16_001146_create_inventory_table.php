@@ -19,6 +19,8 @@ class CreateInventoryTable extends Migration
             $table->string( 'type' );
             $table->unsignedBigInteger( 'specie_id' );
             $table->foreign( 'specie_id' )->references( 'id' )->on( 'species' );
+            $table->unsignedBigInteger( 'nursery_id' );
+            $table->foreign( 'nursery_id' )->references( 'id' )->on( 'nurseries' );
             $table->date( 'date' );
             $table->string( 'observation' )->nullable();
             $table->string( 'responsible' )->nullable();

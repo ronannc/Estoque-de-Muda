@@ -30,18 +30,11 @@
                         </div>
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-3">
                                     @include('components.select-city', ['required' => true])
                                 </div>
-                                <div class="col-4">
-                                    @include('components.input-address', ['required' => true])
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="row">
                                 <div class="col-3">
-                                    @include('components.input-neighborhood', ['required' => true])
+                                    @include('components.input-address', ['required' => true])
                                 </div>
                                 <div class="col-3">
                                     @include('components.input-number', ['required' => true])

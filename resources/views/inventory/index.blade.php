@@ -21,9 +21,7 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Cidade</th>
-                    <th>Estado</th>
                     <th>Endereço</th>
-                    <th>Bairro</th>
                     <th>Número</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -70,19 +68,9 @@
                         title: 'Cidade'
                     },
                     {
-                        data: 'city.state.name',
-                        name: 'city.state.name',
-                        title: 'Estado'
-                    },
-                    {
                         data: 'address',
                         name: 'address',
                         title: 'Edereço'
-                    },
-                    {
-                        data: 'neighborhood',
-                        name: 'neighborhood',
-                        title: 'Bairro'
                     },
                     {
                         data: 'number',
