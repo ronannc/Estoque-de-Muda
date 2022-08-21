@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Models\Inventory;
 use App\Repositories\Contracts\GroupRepository;
 use App\Repositories\Contracts\SpecieRepository;
 
@@ -107,5 +108,12 @@ class SpecieService
                 'message' => $exception->getMessage()
             ];
         }
+    }
+
+    public function sumInventory( $inventory )
+    {
+        $sumStore = $inventory->where( 'type', Inventory::STORE )->sum( 'quantity' );
+        $sumExit  = $inventory->where( 'type', Inventory::EXIT )->sum( 'quantity' );
+        return $sumStore - $sumExit;
     }
 }

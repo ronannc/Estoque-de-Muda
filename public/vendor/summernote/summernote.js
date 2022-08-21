@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -208,8 +208,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
+    /******/
+    /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
@@ -222,15 +222,16 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
+        /******/
+        /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
+        /******/
+        /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
-/************************************************************************/
+
+    /******/
+    /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -242,8 +243,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
+    /******/
+    /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
 /******/ 		__webpack_require__.d = (exports, definition) => {
@@ -254,13 +255,13 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+    /******/
+    /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
+    /******/
+    /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
 /******/ 		__webpack_require__.r = (exports) => {
@@ -270,8 +271,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
-/************************************************************************/
+    /******/
+    /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
@@ -875,10 +876,11 @@ function isText(node) {
 function isElement(node) {
   return node && node.nodeType === 1;
 }
-/**
- * ex) br, col, embed, hr, img, input, ...
- * @see http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
- */
+
+    /**
+     * ex) pt-br, col, embed, hr, img, input, ...
+     * @see http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements
+     */
 
 
 function isVoid(node) {
@@ -975,14 +977,15 @@ function withClosestSiblings(node, pred) {
 
   return siblings;
 }
-/**
- * blank HTML for cursor position
- * - [workaround] old IE only works with &nbsp;
- * - [workaround] IE11 and other browser works with bogus br
- */
+
+    /**
+     * blank HTML for cursor position
+     * - [workaround] old IE only works with &nbsp;
+     * - [workaround] IE11 and other browser works with bogus pt-br
+     */
 
 
-var blankHTML = env.isMSIE && env.browserVersion < 11 ? '&nbsp;' : '<br>';
+    var blankHTML = env.isMSIE && env.browserVersion < 11 ? '&nbsp;' : '<pt-br>';
 /**
  * @method nodeLength
  *
@@ -1031,7 +1034,7 @@ function dom_isEmpty(node) {
   if (len === 0) {
     return true;
   } else if (!isText(node) && len === 1 && node.innerHTML === blankHTML) {
-    // ex) <p><br></p>, <span><br></span>
+      // ex) <p><pt-br></p>, <span><pt-br></span>
     return true;
   } else if (lists.all(node.childNodes, isText) && node.innerHTML === '') {
     // ex) <p></p>, <span></span>
@@ -4271,17 +4274,17 @@ var Typing = /*#__PURE__*/function () {
           }
 
           if (blockquote) {
-            // We're inside a blockquote and options ask us to break it
-            nextPara = external_jQuery_default()(dom.emptyPara)[0]; // If the split is right before a <br>, remove it so that there's no "empty line"
-            // after the split in the new blockquote created
+              // We're inside a blockquote and options ask us to break it
+              nextPara = external_jQuery_default()(dom.emptyPara)[0]; // If the split is right before a <pt-br>, remove it so that there's no "empty line"
+              // after the split in the new blockquote created
 
-            if (dom.isRightEdgePoint(rng.getStartPoint()) && dom.isBR(rng.sc.nextSibling)) {
-              external_jQuery_default()(rng.sc.nextSibling).remove();
-            }
+              if (dom.isRightEdgePoint(rng.getStartPoint()) && dom.isBR(rng.sc.nextSibling)) {
+                  external_jQuery_default()(rng.sc.nextSibling).remove();
+              }
 
-            var split = dom.splitTree(blockquote, rng.getStartPoint(), {
-              isDiscardEmptySplits: true
-            });
+              var split = dom.splitTree(blockquote, rng.getStartPoint(), {
+                  isDiscardEmptySplits: true
+              });
 
             if (split) {
               split.parentNode.insertBefore(nextPara, split);

@@ -12,6 +12,9 @@ class Inventory extends Model
     use HasFactory;
     use SoftDeletes;
 
+    const STORE = 1;
+    const EXIT  = 2;
+
     protected $fillable = [
         'quantity',
         'type',

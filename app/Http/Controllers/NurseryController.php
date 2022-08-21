@@ -22,8 +22,11 @@ class NurseryController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Nursery::query()->with( 'city.state' ) )
+            return DataTables::eloquent( Nursery::query()->with( 'city.state', 'inventories' ) )
                              ->addIndexColumn()
+                             ->editColumn( 'inventory', function ( $row ) {
+                                 return $this->service->sumInventory( $row->inventories );
+                             } )
                              ->addColumn( 'action', function ( $row ) {
                                  $btn = '<a href="' . route( 'nursery.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';

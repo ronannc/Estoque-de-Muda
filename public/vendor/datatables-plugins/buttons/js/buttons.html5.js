@@ -869,8 +869,8 @@ DataTable.ext.buttons.copyHtml5 = {
 
 		// Otherwise we show the text box and instruct the user to use it
 		var message = $('<span>'+dt.i18n( 'buttons.copyKeys',
-				'Press <i>ctrl</i> or <i>\u2318</i> + <i>C</i> to copy the table data<br>to your system clipboard.<br><br>'+
-				'To cancel, click this message or press escape.' )+'</span>'
+				'Press <i>ctrl</i> or <i>\u2318</i> + <i>C</i> to copy the table data<pt-br>to your system clipboard.<pt-br><pt-br>' +
+            'To cancel, click this message or press escape.' )+'</span>'
 			)
 			.append( hiddenDiv );
 
@@ -1181,14 +1181,14 @@ DataTable.ext.buttons.excelHtml5 = {
 			addRow( data.header, rowPos );
 			$('row:last c', rels).attr( 's', '2' ); // bold
 		}
-	
-		dataStartRow = rowPos;
+
+        dataStartRow = rowPos;
 
 		for ( var n=0, ie=data.body.length ; n<ie ; n++ ) {
 			addRow( data.body[n], rowPos );
 		}
-	
-		dataEndRow = rowPos;
+
+        dataEndRow = rowPos;
 
 		if ( config.footer && data.footer ) {
 			addRow( data.footer, rowPos);

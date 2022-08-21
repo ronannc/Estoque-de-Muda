@@ -22,6 +22,7 @@
                     <th>Nome</th>
                     <th>Especie</th>
                     <th>Grupo</th>
+                    <th>Estoque</th>
                     <th>AÇÕES</th>
                 </tr>
                 </thead>
@@ -70,6 +71,14 @@
                         data: 'group.name',
                         name: 'group.name',
                         title: 'Grupo'
+                    },
+                    {
+                        data: 'inventory',
+                        name: 'inventory',
+                        title: 'Estoque',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'action',

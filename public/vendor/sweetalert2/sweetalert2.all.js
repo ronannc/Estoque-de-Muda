@@ -1679,19 +1679,19 @@
 
 
   function setParameters(params) {
-    setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
+      setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
 
-    if (params.showLoaderOnConfirm && !params.preConfirm) {
-      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
-    }
+      if (params.showLoaderOnConfirm && !params.preConfirm) {
+          warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+      }
 
-    validateCustomTargetElement(params); // Replace newlines with <br> in title
+      validateCustomTargetElement(params); // Replace newlines with <pt-br> in title
 
-    if (typeof params.title === 'string') {
-      params.title = params.title.split('\n').join('<br />');
-    }
+      if (typeof params.title === 'string') {
+          params.title = params.title.split('\n').join('<pt-br />');
+      }
 
-    init(params);
+      init(params);
   }
 
   class Timer {

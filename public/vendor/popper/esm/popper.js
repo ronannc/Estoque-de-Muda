@@ -906,7 +906,7 @@ function runModifiers(modifiers, data, ends) {
 
 /**
  * Updates the position of the popper, computing the new offsets and applying
- * the new style.<br />
+ * the new style.<pt-br />
  * Prefer `scheduleUpdate` over `update` because of performance reasons.
  * @method
  * @memberof Popper
@@ -1367,7 +1367,7 @@ function computeStyle(data, options) {
 }
 
 /**
- * Helper used to know if the given modifier depends from another one.<br />
+ * Helper used to know if the given modifier depends from another one.<pt-br />
  * It checks if the needed modifier is listed and enabled.
  * @method
  * @memberof Popper.Utils
@@ -1493,7 +1493,7 @@ function getOppositeVariation(variation) {
 }
 
 /**
- * List of accepted placements to use as values of the `placement` option.<br />
+ * List of accepted placements to use as values of the `placement` option.<pt-br />
  * Valid placements are:
  * - `auto`
  * - `top`
@@ -1507,7 +1507,7 @@ function getOppositeVariation(variation) {
  *
  * Variations are interpreted easily if you think of them as the left to right
  * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
- * is right.<br />
+ * is right.<pt-br />
  * Vertically (`left` and `right`), `start` is top and `end` is bottom.
  *
  * Some valid examples are:
@@ -2022,7 +2022,7 @@ function inner(data) {
 
 /**
  * Modifier function, each modifier can have a function of this type assigned
- * to its `fn` property.<br />
+ * to its `fn` property.<pt-br />
  * These functions will be called on each update, this means that you must
  * make sure they are performant enough to avoid performance bottlenecks.
  *
@@ -2033,7 +2033,7 @@ function inner(data) {
  */
 
 /**
- * Modifiers are plugins used to alter the behavior of your poppers.<br />
+ * Modifiers are plugins used to alter the behavior of your poppers.<pt-br />
  * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
  * needed by the library.
  *
@@ -2042,14 +2042,14 @@ function inner(data) {
  * @namespace modifiers
  */
 var modifiers = {
-  /**
-   * Modifier used to shift the popper on the start or end of its reference
-   * element.<br />
-   * It will read the variation of the `placement` property.<br />
-   * It can be one either `-end` or `-start`.
-   * @memberof modifiers
-   * @inner
-   */
+    /**
+     * Modifier used to shift the popper on the start or end of its reference
+     * element.<pt-br />
+     * It will read the variation of the `placement` property.<pt-br />
+     * It can be one either `-end` or `-start`.
+     * @memberof modifiers
+     * @inner
+     */
   shift: {
     /** @prop {number} order=100 - Index used to define the order of execution */
     order: 100,
@@ -2059,34 +2059,34 @@ var modifiers = {
     fn: shift
   },
 
-  /**
-   * The `offset` modifier can shift your popper on both its axis.
-   *
-   * It accepts the following units:
-   * - `px` or unit-less, interpreted as pixels
-   * - `%` or `%r`, percentage relative to the length of the reference element
-   * - `%p`, percentage relative to the length of the popper element
-   * - `vw`, CSS viewport width unit
-   * - `vh`, CSS viewport height unit
-   *
-   * For length is intended the main axis relative to the placement of the popper.<br />
-   * This means that if the placement is `top` or `bottom`, the length will be the
-   * `width`. In case of `left` or `right`, it will be the `height`.
-   *
-   * You can provide a single value (as `Number` or `String`), or a pair of values
-   * as `String` divided by a comma or one (or more) white spaces.<br />
-   * The latter is a deprecated method because it leads to confusion and will be
-   * removed in v2.<br />
-   * Additionally, it accepts additions and subtractions between different units.
-   * Note that multiplications and divisions aren't supported.
-   *
-   * Valid examples are:
-   * ```
-   * 10
-   * '10%'
-   * '10, 10'
-   * '10%, 10'
-   * '10 + 10%'
+    /**
+     * The `offset` modifier can shift your popper on both its axis.
+     *
+     * It accepts the following units:
+     * - `px` or unit-less, interpreted as pixels
+     * - `%` or `%r`, percentage relative to the length of the reference element
+     * - `%p`, percentage relative to the length of the popper element
+     * - `vw`, CSS viewport width unit
+     * - `vh`, CSS viewport height unit
+     *
+     * For length is intended the main axis relative to the placement of the popper.<pt-br />
+     * This means that if the placement is `top` or `bottom`, the length will be the
+     * `width`. In case of `left` or `right`, it will be the `height`.
+     *
+     * You can provide a single value (as `Number` or `String`), or a pair of values
+     * as `String` divided by a comma or one (or more) white spaces.<pt-br />
+     * The latter is a deprecated method because it leads to confusion and will be
+     * removed in v2.<pt-br />
+     * Additionally, it accepts additions and subtractions between different units.
+     * Note that multiplications and divisions aren't supported.
+     *
+     * Valid examples are:
+     * ```
+     * 10
+     * '10%'
+     * '10, 10'
+     * '10%, 10'
+     * '10 + 10%'
    * '10 - 5vh + 3%'
    * '-10px + 5vh, 5px - 6%'
    * ```
@@ -2110,21 +2110,21 @@ var modifiers = {
     offset: 0
   },
 
-  /**
-   * Modifier used to prevent the popper from being positioned outside the boundary.
-   *
-   * A scenario exists where the reference itself is not within the boundaries.<br />
-   * We can say it has "escaped the boundaries" — or just "escaped".<br />
-   * In this case we need to decide whether the popper should either:
-   *
-   * - detach from the reference and remain "trapped" in the boundaries, or
-   * - if it should ignore the boundary and "escape with its reference"
-   *
-   * When `escapeWithReference` is set to`true` and reference is completely
-   * outside its boundaries, the popper will overflow (or completely leave)
-   * the boundaries in order to remain attached to the edge of the reference.
-   *
-   * @memberof modifiers
+    /**
+     * Modifier used to prevent the popper from being positioned outside the boundary.
+     *
+     * A scenario exists where the reference itself is not within the boundaries.<pt-br />
+     * We can say it has "escaped the boundaries" — or just "escaped".<pt-br />
+     * In this case we need to decide whether the popper should either:
+     *
+     * - detach from the reference and remain "trapped" in the boundaries, or
+     * - if it should ignore the boundary and "escape with its reference"
+     *
+     * When `escapeWithReference` is set to`true` and reference is completely
+     * outside its boundaries, the popper will overflow (or completely leave)
+     * the boundaries in order to remain attached to the edge of the reference.
+     *
+     * @memberof modifiers
    * @inner
    */
   preventOverflow: {
@@ -2380,8 +2380,8 @@ var modifiers = {
  */
 
 /**
- * Default options provided to Popper.js constructor.<br />
- * These can be overridden using the `options` argument of Popper.js.<br />
+ * Default options provided to Popper.js constructor.<pt-br />
+ * These can be overridden using the `options` argument of Popper.js.<pt-br />
  * To override an option, simply pass an object with the same
  * structure of the `options` object, as the 3rd argument. For example:
  * ```
@@ -2421,22 +2421,22 @@ var Defaults = {
    */
   removeOnDestroy: false,
 
-  /**
-   * Callback called when the popper is created.<br />
-   * By default, it is set to no-op.<br />
-   * Access Popper.js instance with `data.instance`.
-   * @prop {onCreate}
-   */
+    /**
+     * Callback called when the popper is created.<pt-br />
+     * By default, it is set to no-op.<pt-br />
+     * Access Popper.js instance with `data.instance`.
+     * @prop {onCreate}
+     */
   onCreate: function onCreate() {},
 
-  /**
-   * Callback called when the popper is updated. This callback is not called
-   * on the initialization/creation of the popper, but only on subsequent
-   * updates.<br />
-   * By default, it is set to no-op.<br />
-   * Access Popper.js instance with `data.instance`.
-   * @prop {onUpdate}
-   */
+    /**
+     * Callback called when the popper is updated. This callback is not called
+     * on the initialization/creation of the popper, but only on subsequent
+     * updates.<pt-br />
+     * By default, it is set to no-op.<pt-br />
+     * Access Popper.js instance with `data.instance`.
+     * @prop {onUpdate}
+     */
   onUpdate: function onUpdate() {},
 
   /**
@@ -2589,7 +2589,7 @@ var Popper = function () {
 
 /**
  * The `referenceObject` is an object that provides an interface compatible with Popper.js
- * and lets you use it as replacement of a real DOM node.<br />
+ * and lets you use it as replacement of a real DOM node.<pt-br />
  * You can use this method to position a popper relatively to a set of coordinates
  * in case you don't have a DOM node to use as reference.
  *

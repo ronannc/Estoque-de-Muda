@@ -25,6 +25,7 @@
                     <th>Endereço</th>
                     <th>Bairro</th>
                     <th>Número</th>
+                    <th>Estoque</th>
                     <th>AÇÕES</th>
                 </tr>
                 </thead>
@@ -88,6 +89,14 @@
                         data: 'number',
                         name: 'number',
                         title: 'Número'
+                    },
+                    {
+                        data: 'inventory',
+                        name: 'inventory',
+                        title: 'Estoque',
+                        defaultContent: '-',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'action',

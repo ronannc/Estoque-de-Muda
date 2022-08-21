@@ -24,6 +24,9 @@ class SpecieController extends Controller
         if ( $request->ajax() ) {
             return DataTables::eloquent( Specie::query()->with( 'group' ) )
                              ->addIndexColumn()
+                             ->editColumn( 'inventory', function ( $row ) {
+                                 return $this->service->sumInventory( $row->inventories );
+                             } )
                              ->addColumn( 'action', function ( $row ) {
                                  $btn = '<a href="' . route( 'specie.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';

@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Viveiros')
+@section('title', 'Movimentação de Estoque')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Viveiros</h1>
+    <h1 class="m-0 text-dark">Movimentação de Estoque</h1>
 @stop
 
 @section('content')
@@ -19,10 +19,12 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nome</th>
-                    <th>Cidade</th>
-                    <th>Endereço</th>
-                    <th>Número</th>
+                    <th>Data</th>
+                    <th>Quantidade</th>
+                    <th>Especie</th>
+                    <th>Viveiro</th>
+                    <th>Tipo</th>
+                    <th>Responsável</th>
                     <th>AÇÕES</th>
                 </tr>
                 </thead>
@@ -50,7 +52,7 @@
                 buttons: [
                     'pageLength'
                 ],
-                ajax: "{{ route('nursery.index') }}",
+                ajax: "{{ route('inventory.index') }}",
                 columns: [
                     {
                         data: 'id',
@@ -58,24 +60,34 @@
                         title: 'ID'
                     },
                     {
-                        data: 'name',
-                        name: 'name',
-                        title: 'Nome'
+                        data: 'date',
+                        name: 'date',
+                        title: 'Data'
                     },
                     {
-                        data: 'city.name',
-                        name: 'city.name',
-                        title: 'Cidade'
+                        data: 'quantity',
+                        name: 'quantity',
+                        title: 'Quantidade'
                     },
                     {
-                        data: 'address',
-                        name: 'address',
-                        title: 'Edereço'
+                        data: 'specie.name',
+                        name: 'specie.name',
+                        title: 'Especie'
                     },
                     {
-                        data: 'number',
-                        name: 'number',
-                        title: 'Número'
+                        data: 'nursery.name',
+                        name: 'nursery.name',
+                        title: 'Viveiro'
+                    },
+                    {
+                        data: 'type',
+                        name: 'type',
+                        title: 'Tipo'
+                    },
+                    {
+                        data: 'responsible',
+                        name: 'responsible',
+                        title: 'Responsável'
                     },
                     {
                         data: 'action',

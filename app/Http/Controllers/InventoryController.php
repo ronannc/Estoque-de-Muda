@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNurseryRequest;
-use App\Http\Requests\UpdateNurseryRequest;
-use App\Models\Nursery;
-use App\Service\NurseryService;
+use App\Http\Requests\StoreInventoryRequest;
+use App\Http\Requests\UpdateInventoryRequest;
+use App\Models\Inventory;
+use App\Service\InventoryService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class NurseryController extends Controller
+class InventoryController extends Controller
 {
     protected $service;
 
-    public function __construct( NurseryService $service )
+    public function __construct( InventoryService $service )
     {
         $this->middleware( 'auth' );
         $this->service = $service;
@@ -22,27 +22,33 @@ class NurseryController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Nursery::query()->with( 'city' ) )
+            return DataTables::eloquent( Inventory::query()->with( 'specie', 'nursery' ) )
                              ->addIndexColumn()
+                             ->editColumn( 'type', function ( $row ) {
+                                 return $row[ 'type' ] = $row[ 'type' ] == Inventory::STORE ? '<i class="fas fa-sign-in-alt" style="color: green"></i> ENTRADA' : '<i class="fas fa-sign-out-alt" style="color: red"></i> SAIDA';
+                             } )
+                             ->editColumn( 'date', function ( $row ) {
+                                 return date( 'd/m/Y', strtotime( $row[ 'date' ] ) );
+                             } )
                              ->addColumn( 'action', function ( $row ) {
-                                 $btn = '<a href="' . route( 'nursery.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
+                                 $btn = '<a href="' . route( 'inventory.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';
                                  return $btn;
                              } )
-                             ->rawColumns( [ 'action' ] )
+                             ->rawColumns( [ 'action', 'type' ] )
                              ->make( true );
         }
 
-        return view( 'nursery.index' );
+        return view( 'inventory.index' );
     }
 
     public function create()
     {
         $extraData = $this->service->getExtraData();
-        return view( 'nursery.create', compact( 'extraData' ) );
+        return view( 'inventory.create', compact( 'extraData' ) );
     }
 
-    public function store( StoreNurseryRequest $request )
+    public function store( StoreInventoryRequest $request )
     {
         $resultFromStore = $this->service->store( $request->all() );
 
@@ -51,20 +57,20 @@ class NurseryController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro registrado com sucesso!' );
-        return redirect( route( 'nursery.index' ) );
+        session()->flash( 'status', 'Movientação de Estoque cadastrado com sucesso!' );
+        return redirect( route( 'inventory.index' ) );
     }
 
     public function edit( $id )
     {
         $data      = $this->service->findOne( $id );
         $extraData = $this->service->getExtraData();
-        return view( 'nursery.edit', compact( 'data', 'extraData' ) );
+        return view( 'inventory.edit', compact( 'data', 'extraData' ) );
     }
 
-    public function update( UpdateNurseryRequest $request, Nursery $nursery )
+    public function update( UpdateInventoryRequest $request, Inventory $inventory )
     {
-        $resultFromStore = $this->service->update( $request->all(), $nursery );
+        $resultFromStore = $this->service->update( $request->all(), $inventory );
 
         if ( !empty( $resultFromStore[ 'error' ] ) ) {
             session()->flash( 'error', $resultFromStore[ 'message' ] );
@@ -72,7 +78,7 @@ class NurseryController extends Controller
         }
 
         session()->flash( 'status', 'Viveiro atualizado com sucesso!' );
-        return redirect( route( 'nursery.index' ) );
+        return redirect( route( 'inventory.index' ) );
     }
 
     public function destroy( $id )

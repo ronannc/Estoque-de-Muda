@@ -897,7 +897,7 @@ function isModifierEnabled(modifiers, modifierName) {
 }
 
 /**
- * Helper used to know if the given modifier depends from another one.<br />
+ * Helper used to know if the given modifier depends from another one.<pt-br />
  * It checks if the needed modifier is listed and enabled.
  * @method
  * @memberof Popper.Utils

@@ -5,7 +5,7 @@
 
 ( function( factory ) {
 	"use strict";
-	
+
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -17109,10 +17109,10 @@ $.widget( "ui.spinner", {
 	widgetEventPrefix: "spin",
 	options: {
 		classes: {
-			"ui-spinner": "ui-corner-all",
-			"ui-spinner-down": "ui-corner-br",
-			"ui-spinner-up": "ui-corner-tr"
-		},
+            "ui-spinner": "ui-corner-all",
+            "ui-spinner-down": "ui-corner-pt-br",
+            "ui-spinner-up": "ui-corner-tr"
+        },
 		culture: null,
 		icons: {
 			down: "ui-icon-triangle-1-s",

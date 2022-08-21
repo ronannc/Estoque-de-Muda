@@ -3,8 +3,8 @@
             <i class="fa fa-asterisk" style="color: red"></i>
         @endif</label>
     <select class="select2" name="nursery_id" id="nursery_id" style="width: 100%" @if(isset($required) && $required) required @endif>
-        @if(isset($extraData['groups']))
-            @foreach ($extraData['groups'] as $key => $nursery)
+        @if(isset($extraData['nurseries']))
+            @foreach ($extraData['nurseries'] as $key => $nursery)
                 @if(!empty($data['nursery_id']))
                     <option value="{{ $nursery->id }}" {{ $nursery->id == $data['nursery_id']  ? 'selected': '' }}> {{ $nursery->name }} </option>
                 @else

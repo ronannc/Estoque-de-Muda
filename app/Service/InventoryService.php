@@ -3,12 +3,29 @@
 namespace App\Service;
 
 use App\Repositories\Contracts\InventoryRepository;
+use App\Repositories\Contracts\NurseryRepository;
+use App\Repositories\Contracts\SpecieRepository;
 
 class InventoryService
 {
     protected $inventoryRepository;
+    protected $specieRepository;
+    protected $nurseryRepository;
 
-    public function __construct( InventoryRepository $inventoryRepository ) { $this->inventoryRepository = $inventoryRepository; }
+    public function __construct( InventoryRepository $inventoryRepository, SpecieRepository $specieRepository, NurseryRepository $nurseryRepository )
+    {
+        $this->inventoryRepository = $inventoryRepository;
+        $this->specieRepository    = $specieRepository;
+        $this->nurseryRepository   = $nurseryRepository;
+    }
+
+    public function getExtraData()
+    {
+        return [
+            'species'   => $this->specieRepository->all(),
+            'nurseries' => $this->nurseryRepository->all()
+        ];
+    }
 
     /**
      * @param array $data
