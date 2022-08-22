@@ -1,9 +1,9 @@
 CREATE TABLE cities
 (
-    id         INT (11)                        NOT NULL,
-    name       VARCHAR (50) CHARACTER SET utf8 NOT NULL,
-    population INT (11)                        NOT NULL,
-    state_id   INT (11)                        NOT NULL
+    id         INT                        NOT NULL,
+    name       VARCHAR CHARACTER SET utf8 NOT NULL,
+    population INT                        NOT NULL,
+    state_id   INT                        NOT NULL
 );
 
 INSERT INTO cities (id, name, population, state_id)
@@ -5583,10 +5583,10 @@ VALUES (5299, 'Sapezal', 0, 13),
 
 CREATE TABLE regions
 (
-    id         INT (11)    NOT NULL,
-    name       VARCHAR (80) DEFAULT NULL,
-    pib        BIGINT (20) NOT NULL,
-    population INT (11)    NOT NULL
+    id         INT    NOT NULL,
+    name       VARCHAR DEFAULT NULL,
+    pib        BIGINT NOT NULL,
+    population INT    NOT NULL
 );
 
 INSERT INTO regions (id, name, pib, population)
@@ -5598,12 +5598,12 @@ VALUES (1, 'Norte', 231383000, 17231027),
 
 CREATE TABLE states
 (
-    id         INT (11)     NOT NULL,
-    initials   CHAR(2)     NOT NULL,
-    name       VARCHAR (35) NOT NULL,
-    pib_1000   INT (11)     NOT NULL,
-    population INT (11)     NOT NULL,
-    region_id  INT (11)     NOT NULL
+    id         INT     NOT NULL,
+    initials   CHAR     NOT NULL,
+    name       VARCHAR NOT NULL,
+    pib_1000   INT     NOT NULL,
+    population INT     NOT NULL,
+    region_id  INT     NOT NULL
 );
 
 INSERT INTO states (id, initials, name, pib_1000, population, region_id)
@@ -5647,15 +5647,15 @@ ALTER TABLE states
     ADD KEY id_region (region_id);
 
 ALTER TABLE cities
-    MODIFY id INT (11) NOT NULL AUTO_INCREMENT,
+    MODIFY id INT NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 5571;
 
 ALTER TABLE regions
-    MODIFY id INT (11) NOT NULL AUTO_INCREMENT,
+    MODIFY id INT NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 6;
 
 ALTER TABLE states
-    MODIFY id INT (11) NOT NULL AUTO_INCREMENT,
+    MODIFY id INT NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 28;
 
 ALTER TABLE cities
