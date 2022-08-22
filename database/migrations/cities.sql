@@ -1,52 +1,13 @@
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
---
--- Host: localhost:3306
--- Generation Time: Jan 06, 2017 at 05:50 AM
--- Server version: 5.7.16-0ubuntu0.16.04.1
--- PHP Version: 7.0.8-0ubuntu0.16.04.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS = @@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: 'tars'
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table 'cities'
---
-
-CREATE TABLE 'cities'
+CREATE TABLE cities
 (
-    'id'         INT(11)                NOT NULL
-        COMMENT 'ID',
-    'name'       VARCHAR(50)
-                     CHARACTER SET utf8 NOT NULL
-        COMMENT 'Name of City',
-    'population' INT(11)                NOT NULL
-        COMMENT '2015',
-    'state_id'   INT(11)                NOT NULL
-        COMMENT 'State'
-)
-    ENGINE = InnoDB
-    DEFAULT CHARSET = utf8mb4;
+    id         INT(11)                NOT NULL,
+    name       VARCHAR(50) CHARACTER SET utf8 NOT NULL,
+    population INT(11)                NOT NULL,
+    state_id   INT(11)                NOT NULL
+);
 
---
--- Dumping data for table 'cities'
---
-
-INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
-VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
+INSERT INTO cities (id, name, population, state_id)
+VALUES (1, 'Alta Floresta do Oeste', 0, 21),
        (2, 'Ariquemes', 0, 21),
        (3, 'Cabixi', 0, 21),
        (4, 'Cacoal', 0, 21),
@@ -54,23 +15,23 @@ VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
        (6, 'Colorado do Oeste', 0, 21),
        (7, 'Corumbiara', 0, 21),
        (8, 'Costa Marques', 0, 21),
-       (9, 'Espigão D\'oeste', 0, 21),
+       (9, 'Espigão do Oeste', 0, 21),
        (10, 'Guajará-Mirim', 0, 21),
        (11, 'Jaru', 0, 21),
        (12, 'Ji-Paraná', 0, 21),
-       (13, 'Machadinho D\'oeste', 0, 21),
-       (14, 'Nova Brasilândia D\'oeste', 0, 21),
+       (13, 'Machadinho do Oeste', 0, 21),
+       (14, 'Nova Brasilândia do Oeste', 0, 21),
        (15, 'Ouro Preto do Oeste', 0, 21),
        (16, 'Pimenta Bueno', 0, 21),
        (17, 'Porto Velho', 502748, 21),
        (18, 'Presidente Médici', 0, 21),
        (19, 'Rio Crespo', 0, 21),
        (20, 'Rolim de Moura', 0, 21),
-       (21, 'Santa Luzia D\'oeste', 0, 21),
+       (21, 'Santa Luzia do Oeste', 0, 21),
        (22, 'Vilhena', 0, 21),
        (23, 'São Miguel do Guaporé', 0, 21),
        (24, 'Nova Mamoré', 0, 21),
-       (25, 'Alvorada D\'oeste', 0, 21),
+       (25, 'Alvorada do Oeste', 0, 21),
        (26, 'Alto Alegre dos Parecis', 0, 21),
        (27, 'Alto Paraíso', 0, 21),
        (28, 'Buritis', 0, 21),
@@ -90,7 +51,7 @@ VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
        (42, 'Parecis', 0, 21),
        (43, 'Pimenteiras do Oeste', 0, 21),
        (44, 'Primavera de Rondônia', 0, 21),
-       (45, 'São Felipe D\'oeste', 0, 21),
+       (45, 'São Felipe do Oeste', 0, 21),
        (46, 'São Francisco do Guaporé', 0, 21),
        (47, 'Seringueiras', 0, 21),
        (48, 'Teixeirópolis', 0, 21),
@@ -1819,7 +1780,7 @@ VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
        (1771, 'Frei Paulo', 0, 25),
        (1772, 'Gararu', 0, 25),
        (1773, 'General Maynard', 0, 25);
-INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
+INSERT INTO cities (id, name, population, state_id)
 VALUES (1774, 'Gracho Cardoso', 0, 25),
        (1775, 'Ilha das Flores', 0, 25),
        (1776, 'Indiaroba', 0, 25),
@@ -3340,7 +3301,7 @@ VALUES (1774, 'Gracho Cardoso', 0, 25),
        (3291, 'Anhembi', 0, 26),
        (3292, 'Anhumas', 0, 26),
        (3293, 'Aparecida', 0, 26),
-       (3294, 'Aparecida D\'oeste', 0, 26),
+       (3294, 'Aparecida do Oeste', 0, 26),
        (3295, 'Apiaí', 0, 26),
        (3296, 'Araçariguama', 0, 26),
        (3297, 'Araçatuba', 0, 26),
@@ -3485,7 +3446,7 @@ VALUES (1774, 'Gracho Cardoso', 0, 25),
        (3436, 'Engenheiro Coelho', 0, 26),
        (3437, 'Espírito Santo do Pinhal', 0, 26),
        (3438, 'Espírito Santo do Turvo', 0, 26),
-       (3439, 'Estrela D\'oeste', 0, 26),
+       (3439, 'Estrela do Oeste', 0, 26),
        (3440, 'Estrela do Norte', 0, 26),
        (3441, 'Euclides da Cunha Paulista', 0, 26),
        (3442, 'Fartura', 0, 26),
@@ -3516,7 +3477,7 @@ VALUES (1774, 'Gracho Cardoso', 0, 25),
        (3467, 'Guará', 0, 26),
        (3468, 'Guaraçaí', 0, 26),
        (3469, 'Guaraci', 0, 26),
-       (3470, 'Guarani D\'oeste', 0, 26),
+       (3470, 'Guarani do Oeste', 0, 26),
        (3471, 'Guarantã', 0, 26),
        (3472, 'Guararapes', 0, 26),
        (3473, 'Guararema', 0, 26),
@@ -3605,7 +3566,7 @@ VALUES (1774, 'Gracho Cardoso', 0, 25),
        (3556, 'José Bonifácio', 0, 26),
        (3557, 'Júlio Mesquita', 0, 26),
        (3558, 'Jumirim', 0, 26);
-INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
+INSERT INTO cities (id, name, population, state_id)
 VALUES (3559, 'Jundiaí', 0, 26),
        (3560, 'Junqueirópolis', 0, 26),
        (3561, 'Juquiá', 0, 26),
@@ -3709,7 +3670,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (3659, 'Pacaembu', 0, 26),
        (3660, 'Palestina', 0, 26),
        (3661, 'Palmares Paulista', 0, 26),
-       (3662, 'Palmeira D\'oeste', 0, 26),
+       (3662, 'Palmeira do Oeste', 0, 26),
        (3663, 'Palmital', 0, 26),
        (3664, 'Panorama', 0, 26),
        (3665, 'Paraguaçu Paulista', 0, 26),
@@ -3826,9 +3787,9 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (3776, 'Sandovalina', 0, 26),
        (3777, 'Santa Adélia', 0, 26),
        (3778, 'Santa Albertina', 0, 26),
-       (3779, 'Santa Bárbara D\'oeste', 0, 26),
+       (3779, 'Santa Bárbara do Oeste', 0, 26),
        (3780, 'Santa Branca', 0, 26),
-       (3781, 'Santa Clara D\'oeste', 0, 26),
+       (3781, 'Santa Clara do Oeste', 0, 26),
        (3782, 'Santa Cruz da Conceição', 0, 26),
        (3783, 'Santa Cruz da Esperança', 0, 26),
        (3784, 'Santa Cruz das Palmeiras', 0, 26),
@@ -3842,7 +3803,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (3792, 'Santa Mercedes', 0, 26),
        (3793, 'Santana da Ponte Pensa', 0, 26),
        (3794, 'Santana de Parnaíba', 0, 26),
-       (3795, 'Santa Rita D\'oeste', 0, 26),
+       (3795, 'Santa Rita do Oeste', 0, 26),
        (3796, 'Santa Rita do Passa Quatro', 0, 26),
        (3797, 'Santa Rosa de Viterbo', 0, 26),
        (3798, 'Santa Salete', 0, 26),
@@ -4055,7 +4016,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4005, 'Curiúva', 0, 18),
        (4006, 'Diamante do Norte', 0, 18),
        (4007, 'Diamante do Sul', 0, 18),
-       (4008, 'Diamante D\'oeste', 0, 18),
+       (4008, 'Diamante do Oeste', 0, 18),
        (4009, 'Dois Vizinhos', 0, 18),
        (4010, 'Douradina', 0, 18),
        (4011, 'Doutor Camargo', 0, 18),
@@ -4116,7 +4077,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4066, 'Itaipulândia', 0, 18),
        (4067, 'Itambaracá', 0, 18),
        (4068, 'Itambé', 0, 18),
-       (4069, 'Itapejara D\'oeste', 0, 18),
+       (4069, 'Itapejara do Oeste', 0, 18),
        (4070, 'Itaperuçu', 0, 18),
        (4071, 'Itaúna do Sul', 0, 18),
        (4072, 'Ivaí', 0, 18),
@@ -4220,7 +4181,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4170, 'Peabiru', 0, 18),
        (4171, 'Perobal', 0, 18),
        (4172, 'Pérola', 0, 18),
-       (4173, 'Pérola D\'oeste', 0, 18),
+       (4173, 'Pérola do Oeste', 0, 18),
        (4174, 'Piên', 0, 18),
        (4175, 'Pinhais', 0, 18),
        (4176, 'Pinhalão', 0, 18),
@@ -4254,7 +4215,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4204, 'Quitandinha', 0, 18),
        (4205, 'Ramilândia', 0, 18),
        (4206, 'Rancho Alegre', 0, 18),
-       (4207, 'Rancho Alegre D\'oeste', 0, 18),
+       (4207, 'Rancho Alegre do Oeste', 0, 18),
        (4208, 'Realeza', 0, 18),
        (4209, 'Rebouças', 0, 18),
        (4210, 'Renascença', 0, 18),
@@ -4302,7 +4263,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4252, 'São João do Caiuá', 0, 18),
        (4253, 'São João do Ivaí', 0, 18),
        (4254, 'São João do Triunfo', 0, 18),
-       (4255, 'São Jorge D\'oeste', 0, 18),
+       (4255, 'São Jorge do Oeste', 0, 18),
        (4256, 'São Jorge do Ivaí', 0, 18),
        (4257, 'São Jorge do Patrocínio', 0, 18),
        (4258, 'São José da Boa Vista', 0, 18),
@@ -4461,7 +4422,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (4411, 'Guaramirim', 0, 24),
        (4412, 'Guarujá do Sul', 0, 24),
        (4413, 'Guatambú', 0, 24),
-       (4414, 'Herval D\'oeste', 0, 24),
+       (4414, 'Herval do Oeste', 0, 24),
        (4415, 'Ibiam', 0, 24),
        (4416, 'Ibicaré', 0, 24),
        (4417, 'Ibirama', 0, 24),
@@ -5259,7 +5220,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (5209, 'Colniza', 0, 13),
        (5210, 'Comodoro', 0, 13),
        (5211, 'Confresa', 0, 13),
-       (5212, 'Conquista D\'oeste', 0, 13),
+       (5212, 'Conquista do Oeste', 0, 13),
        (5213, 'Cotriguaçu', 0, 13),
        (5214, 'Cuiabá', 580489, 13),
        (5215, 'Curvelândia', 0, 13),
@@ -5267,10 +5228,10 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (5217, 'Diamantino', 0, 13),
        (5218, 'Dom Aquino', 0, 13),
        (5219, 'Feliz Natal', 0, 13),
-       (5220, 'Figueirópolis D\'oeste', 0, 13),
+       (5220, 'Figueirópolis do Oeste', 0, 13),
        (5221, 'Gaúcha do Norte', 0, 13),
        (5222, 'General Carneiro', 0, 13),
-       (5223, 'Glória D\'oeste', 0, 13),
+       (5223, 'Glória do Oeste', 0, 13),
        (5224, 'Guarantã do Norte', 0, 13),
        (5225, 'Guiratinga', 0, 13),
        (5226, 'Indiavaí', 0, 13),
@@ -5285,13 +5246,13 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (5235, 'Juína', 0, 13),
        (5236, 'Juruena', 0, 13),
        (5237, 'Juscimeira', 0, 13),
-       (5238, 'Lambari D\'oeste', 0, 13),
+       (5238, 'Lambari do Oeste', 0, 13),
        (5239, 'Lucas do Rio Verde', 0, 13),
        (5240, 'Luciára', 0, 13),
        (5241, 'Vila Bela da Santíssima Trindade', 0, 13),
        (5242, 'Marcelândia', 0, 13),
        (5243, 'Matupá', 0, 13),
-       (5244, 'Mirassol D\'oeste', 0, 13),
+       (5244, 'Mirassol do Oeste', 0, 13),
        (5245, 'Nobres', 0, 13),
        (5246, 'Nortelândia', 0, 13),
        (5247, 'Nossa Senhora do Livramento', 0, 13),
@@ -5346,7 +5307,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (5296, 'Santo Antônio do Leste', 0, 13),
        (5297, 'Santo Antônio do Leverger', 0, 13),
        (5298, 'São Félix do Araguaia', 0, 13);
-INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
+INSERT INTO cities (id, name, population, state_id)
 VALUES (5299, 'Sapezal', 0, 13),
        (5300, 'Serra Nova Dourada', 0, 13),
        (5301, 'Sinop', 0, 13),
@@ -5620,66 +5581,32 @@ VALUES (5299, 'Sapezal', 0, 13),
        (5569, 'Pinto Bandeira', 0, 23),
        (5570, 'Paraíso das Aguás', 0, 12);
 
--- --------------------------------------------------------
-
---
--- Table structure for table 'regions'
---
-
-CREATE TABLE 'regions'
+CREATE TABLE regions
 (
-    'id'         INT(11)    NOT NULL
-        COMMENT 'ID',
-    'name'       VARCHAR(80) DEFAULT NULL
-        COMMENT 'Name of Region',
-    'pib'        BIGINT(20) NOT NULL
-        COMMENT '2012',
-    'population' INT(11)    NOT NULL
-        COMMENT 'Population per region'
-)
-    ENGINE = InnoDB
-    DEFAULT CHARSET = utf8mb4;
+    id         INT(11)    NOT NULL,
+    name       VARCHAR(80) DEFAULT NULL,
+    pib        BIGINT(20) NOT NULL,
+    population INT(11)    NOT NULL
+);
 
---
--- Dumping data for table 'regions'
---
-
-INSERT INTO 'regions' ('id', 'name', 'pib', 'population')
+INSERT INTO regions (id, name, pib, population)
 VALUES (1, 'Norte', 231383000, 17231027),
        (2, 'Nordeste', 595382000, 56560081),
        (3, 'Sudeste', 2424005000, 85115623),
        (4, 'Sul', 710860000, 29016114),
        (5, 'Centro-Oeste', 430463000, 15219608);
 
--- --------------------------------------------------------
-
---
--- Table structure for table 'states'
---
-
-CREATE TABLE 'states'
+CREATE TABLE states
 (
-    'id'         INT(11)     NOT NULL
-        COMMENT 'ID',
-    'initials'   CHAR(2)     NOT NULL
-        COMMENT 'Initials of State',
-    'name'       VARCHAR(35) NOT NULL
-        COMMENT 'Name of State',
-    'pib_1000'   INT(11)     NOT NULL,
-    'population' INT(11)     NOT NULL
-        COMMENT '2015',
-    'region_id'  INT(11)     NOT NULL
-        COMMENT 'Region'
-)
-    ENGINE = InnoDB
-    DEFAULT CHARSET = utf8mb4
-    COMMENT = 'Tabela de Cadastro de ESTADOS';
+    id         INT(11)     NOT NULL,
+    initials   CHAR(2)     NOT NULL,
+    name       VARCHAR(35) NOT NULL,
+    pib_1000   INT(11)     NOT NULL,
+    population INT(11)     NOT NULL,
+    region_id  INT(11)     NOT NULL
+);
 
---
--- Dumping data for table 'states'
---
-
-INSERT INTO 'states' ('id', 'initials', 'name', 'pib_1000', 'population', 'region_id')
+INSERT INTO states (id, initials, name, pib_1000, population, region_id)
 VALUES (1, 'AC', 'Acre', 6767743, 370550, 1),
        (2, 'AL', 'Alagoas', 16385771, 1013773, 2),
        (3, 'AM', 'Amazonas', 64025434, 2057711, 1),
@@ -5708,65 +5635,35 @@ VALUES (1, 'AC', 'Acre', 6767743, 370550, 1),
        (26, 'SP', 'São Paulo', 570706192, 11967825, 3),
        (27, 'TO', 'Tocantins', 5824406, 272726, 1);
 
+ALTER TABLE cities
+    ADD PRIMARY KEY (id),
+    ADD KEY FK_id_state_city (state_id);
 
---
--- Indexes for table 'cities'
---
-ALTER TABLE 'cities'
-    ADD PRIMARY KEY ('id'),
-    ADD KEY 'FK_id_state_city' ('state_id');
+ALTER TABLE regions
+    ADD PRIMARY KEY (id);
 
---
--- Indexes for table 'regions'
---
-ALTER TABLE 'regions'
-    ADD PRIMARY KEY ('id');
+ALTER TABLE states
+    ADD PRIMARY KEY (id),
+    ADD KEY id_region (region_id);
 
---
--- Indexes for table 'states'
---
-ALTER TABLE 'states'
-    ADD PRIMARY KEY ('id'),
-    ADD KEY 'id_region' ('region_id');
-
---
--- AUTO_INCREMENT for table 'cities'
---
-ALTER TABLE 'cities'
-    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
-        COMMENT 'ID',
+ALTER TABLE cities
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 5571;
---
--- AUTO_INCREMENT for table 'regions'
---
-ALTER TABLE 'regions'
-    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
-        COMMENT 'ID',
+
+ALTER TABLE regions
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 6;
---
--- AUTO_INCREMENT for table 'states'
---
-ALTER TABLE 'states'
-    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
-        COMMENT 'ID',
+
+ALTER TABLE states
+    MODIFY id INT(11) NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 28;
 
---
--- Constraints for table 'cities'
---
-ALTER TABLE 'cities'
-    ADD CONSTRAINT 'cities_ibfk_1' FOREIGN KEY ('state_id') REFERENCES 'states' ('id')
+ALTER TABLE cities
+    ADD CONSTRAINT cities_ibfk_1 FOREIGN KEY (state_id) REFERENCES states (id)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
---
--- Constraints for table 'states'
---
-ALTER TABLE 'states'
-    ADD CONSTRAINT 'states_ibfk_1' FOREIGN KEY ('region_id') REFERENCES 'regions' ('id')
+ALTER TABLE states
+    ADD CONSTRAINT states_ibfk_1 FOREIGN KEY (region_id) REFERENCES regions (id)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
