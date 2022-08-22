@@ -19,10 +19,14 @@ class InventoryController extends Controller
         $this->service = $service;
     }
 
-    public function index( Request $request )
+    public function index( Request $request, $specie_id = null )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Inventory::query()->with( 'specie', 'nursery' ) )
+            return DataTables::eloquent( Inventory::query()->where(function($q) use($specie_id){
+                if($specie_id){
+                    $q->where('specie_id',$specie_id );
+                }
+            })->with( 'specie', 'nursery' ) )
                              ->addIndexColumn()
                              ->editColumn( 'type', function ( $row ) {
                                  return $row[ 'type' ] = $row[ 'type' ] == Inventory::STORE ? '<i class="fas fa-sign-in-alt" style="color: green"></i> ENTRADA' : '<i class="fas fa-sign-out-alt" style="color: red"></i> SAIDA';

@@ -25,14 +25,14 @@ class NurseryController extends Controller
             return DataTables::eloquent( Nursery::query()->with( 'city.state', 'inventories' ) )
                              ->addIndexColumn()
                              ->editColumn( 'inventory', function ( $row ) {
-                                 return $this->service->sumInventory( $row->inventories );
+                                 return "<span class='badge bg-primary'>".$this->service->sumInventory( $row->inventories )."</span>" ;
                              } )
                              ->addColumn( 'action', function ( $row ) {
                                  $btn = '<a href="' . route( 'nursery.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';
                                  return $btn;
                              } )
-                             ->rawColumns( [ 'action' ] )
+                             ->rawColumns( [ 'action', 'inventory' ] )
                              ->make( true );
         }
 

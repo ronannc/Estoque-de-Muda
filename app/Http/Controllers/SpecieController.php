@@ -25,14 +25,15 @@ class SpecieController extends Controller
             return DataTables::eloquent( Specie::query()->with( 'group' ) )
                              ->addIndexColumn()
                              ->editColumn( 'inventory', function ( $row ) {
-                                 return $this->service->sumInventory( $row->inventories );
+                                 return "<span class='badge bg-primary'>" . $this->service->sumInventory( $row->inventories ) . "</span>";
                              } )
                              ->addColumn( 'action', function ( $row ) {
-                                 $btn = '<a href="' . route( 'specie.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
+                                 $btn = '<a href="' . route( 'specie.show', $row->id ) . '" class="edit btn btn-info">Histórico</a>' .
+                                        '<a href="' . route( 'specie.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';
                                  return $btn;
                              } )
-                             ->rawColumns( [ 'action' ] )
+                             ->rawColumns( [ 'action', 'inventory' ] )
                              ->make( true );
         }
 
@@ -76,6 +77,12 @@ class SpecieController extends Controller
 
         session()->flash( 'status', 'Viveiro atualizado com sucesso!' );
         return redirect( route( 'specie.index' ) );
+    }
+
+    public function show( $id )
+    {
+        $data = $this->service->findOne( $id );
+        return view( 'specie.show', compact( 'data' ) );
     }
 
     public function destroy( $id )

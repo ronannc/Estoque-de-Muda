@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Especies')
+@section('title', 'Espécies')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Especies</h1>
+    <h1 class="m-0 text-dark">Espécies</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
                     <th>Especie</th>
                     <th>Grupo</th>
                     <th>Estoque</th>
-                    <th>AÇÕES</th>
+                    <th class="text-right">AÇÕES</th>
                 </tr>
                 </thead>
             </table>
@@ -83,6 +83,7 @@
                     {
                         data: 'action',
                         name: 'Ação',
+                        class: 'text-right',
                         orderable: false,
                         searchable: false
                     },

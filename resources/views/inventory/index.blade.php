@@ -25,7 +25,7 @@
                     <th>Viveiro</th>
                     <th>Tipo</th>
                     <th>Responsável</th>
-                    <th>AÇÕES</th>
+                    <th class="text-right">AÇÕES</th>
                 </tr>
                 </thead>
             </table>
@@ -56,7 +56,7 @@
                 columns: [
                     {
                         data: 'id',
-                        name: 'id',
+                        name: 'inventories.id',
                         title: 'ID'
                     },
                     {
@@ -92,6 +92,7 @@
                     {
                         data: 'action',
                         name: 'Ação',
+                        class: 'text-right',
                         orderable: false,
                         searchable: false
                     },
