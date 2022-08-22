@@ -1,7 +1,7 @@
 CREATE TABLE cities
 (
     id         INT                        NOT NULL,
-    name       VARCHAR CHARACTER SET utf8 NOT NULL,
+    name       VARCHAR                    NOT NULL,
     population INT                        NOT NULL,
     state_id   INT                        NOT NULL
 );
