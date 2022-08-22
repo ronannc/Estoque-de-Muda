@@ -5636,8 +5636,7 @@ VALUES (1, 'AC', 'Acre', 6767743, 370550, 1),
        (27, 'TO', 'Tocantins', 5824406, 272726, 1);
 
 ALTER TABLE cities
-    ADD PRIMARY KEY (id),
-    ADD KEY FK_id_state_city (state_id);
+    ADD PRIMARY KEY (id);
 
 ALTER TABLE regions
     ADD PRIMARY KEY (id);
