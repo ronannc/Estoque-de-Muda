@@ -22,15 +22,15 @@ class GroupController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Group::query() )
-                             ->addIndexColumn()
-                             ->addColumn( 'action', function ( $row ) {
+            return ( new DataTables )->eloquent( Group::query() )
+                                                       ->addIndexColumn()
+                                                       ->addColumn( 'action', function ( $row ) {
                                  $btn = '<a href="' . route( 'group.edit', $row->id ) . '" class="edit btn btn-primary">Editar</a>' .
                                         '<button class="btn btn-danger delete" data-id="' . $row->id . '">Deletar</button>';
                                  return $btn;
                              } )
-                             ->rawColumns( [ 'action' ] )
-                             ->make( true );
+                                                       ->rawColumns( [ 'action' ] )
+                                                       ->make( true );
         }
 
         return view( 'group.index' );
