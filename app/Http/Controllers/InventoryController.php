@@ -22,7 +22,7 @@ class InventoryController extends Controller
     public function index( Request $request, $specie_id = null )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Inventory::query()->where(function($q) use($specie_id){
+            return ( new DataTables )->eloquent( Inventory::query()->where(function($q) use($specie_id){
                 if($specie_id){
                     $q->where('specie_id',$specie_id );
                 }

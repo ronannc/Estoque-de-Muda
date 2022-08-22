@@ -22,7 +22,7 @@ class NurseryController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return DataTables::eloquent( Nursery::query()->with( 'city.state', 'inventories' ) )
+            return ( new DataTables )->eloquent( Nursery::query()->with( 'city.state', 'inventories' ) )
                              ->addIndexColumn()
                              ->editColumn( 'inventory', function ( $row ) {
                                  return "<span class='badge bg-primary'>".$this->service->sumInventory( $row->inventories )."</span>" ;
