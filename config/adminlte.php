@@ -308,7 +308,7 @@ return [
             ],
         ],
         [
-            'text'    => 'Especies',
+            'text'    => 'Espécies',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-seedling',
             //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],

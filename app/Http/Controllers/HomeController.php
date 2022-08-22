@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\HomeService;
+
 class HomeController extends Controller
 {
+    protected $service;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(HomeService $homeService)
     {
         $this->middleware('auth');
+        $this->service = $homeService;
     }
 
     /**
@@ -21,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = $this->service->getDashBoard();
+        return view('home', compact('data'));
     }
 }

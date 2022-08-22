@@ -20,7 +20,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>AÇÕES</th>
+                    <th class="text-right">AÇÕES</th>
                 </tr>
                 </thead>
             </table>
@@ -62,6 +62,7 @@
                     {
                         data: 'action',
                         name: 'Ação',
+                        class: 'text-right',
                         orderable: false,
                         searchable: false
                     },

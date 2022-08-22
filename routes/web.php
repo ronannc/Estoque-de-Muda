@@ -19,15 +19,14 @@ Route::get( '/', function () {
 
 Auth::routes();
 
+Route::get( '/inventory/list/{specie_id}', [ App\Http\Controllers\InventoryController::class, 'index' ] )->name( 'inventory.list' );
 Route::get( '/home', [ App\Http\Controllers\HomeController::class, 'index' ] )->name( 'home' );
 Route::resource( '/group', \App\Http\Controllers\GroupController::class );
 Route::resource( '/nursery', \App\Http\Controllers\NurseryController::class );
 Route::resource( '/specie', \App\Http\Controllers\SpecieController::class );
 Route::resource( '/inventory', \App\Http\Controllers\InventoryController::class );
+Route::resource( '/user', \App\Http\Controllers\UserController::class );
 
 Auth::routes();
 
-Route::get( '/home', function () {
-    return view( 'home' );
-} )->name( 'home' )->middleware( 'auth' );
 

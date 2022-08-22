@@ -3,9 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\City;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NurseryFactory extends Factory
+class SpecieFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,10 +17,8 @@ class NurseryFactory extends Factory
     {
         return [
             'name'    => $this->faker->firstName(),
-            'city_id' => City::all()->random()->id,
-            'address' => $this->faker->streetName(),
-            'neighborhood' => $this->faker->streetAddress(),
-            'number'  => $this->faker->numberBetween( 100, 999 ),
+            'specie' => $this->faker->firstName(),
+            'group_id' => Group::all()->random(),
         ];
     }
 }
