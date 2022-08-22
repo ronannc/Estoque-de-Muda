@@ -17,35 +17,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tars`
+-- Database: 'tars'
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cities`
+-- Table structure for table 'cities'
 --
 
-CREATE TABLE `cities`
+CREATE TABLE 'cities'
 (
-    `id`         INT(11)                NOT NULL
+    'id'         INT(11)                NOT NULL
         COMMENT 'ID',
-    `name`       VARCHAR(50)
+    'name'       VARCHAR(50)
                      CHARACTER SET utf8 NOT NULL
         COMMENT 'Name of City',
-    `population` INT(11)                NOT NULL
+    'population' INT(11)                NOT NULL
         COMMENT '2015',
-    `state_id`   INT(11)                NOT NULL
+    'state_id'   INT(11)                NOT NULL
         COMMENT 'State'
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8mb4;
 
 --
--- Dumping data for table `cities`
+-- Dumping data for table 'cities'
 --
 
-INSERT INTO `cities` (`id`, `name`, `population`, `state_id`)
+INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
 VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
        (2, 'Ariquemes', 0, 21),
        (3, 'Cabixi', 0, 21),
@@ -1819,7 +1819,7 @@ VALUES (1, 'Alta Floresta D\'oeste', 0, 21),
        (1771, 'Frei Paulo', 0, 25),
        (1772, 'Gararu', 0, 25),
        (1773, 'General Maynard', 0, 25);
-INSERT INTO `cities` (`id`, `name`, `population`, `state_id`)
+INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
 VALUES (1774, 'Gracho Cardoso', 0, 25),
        (1775, 'Ilha das Flores', 0, 25),
        (1776, 'Indiaroba', 0, 25),
@@ -3605,7 +3605,7 @@ VALUES (1774, 'Gracho Cardoso', 0, 25),
        (3556, 'José Bonifácio', 0, 26),
        (3557, 'Júlio Mesquita', 0, 26),
        (3558, 'Jumirim', 0, 26);
-INSERT INTO `cities` (`id`, `name`, `population`, `state_id`)
+INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
 VALUES (3559, 'Jundiaí', 0, 26),
        (3560, 'Junqueirópolis', 0, 26),
        (3561, 'Juquiá', 0, 26),
@@ -5346,7 +5346,7 @@ VALUES (3559, 'Jundiaí', 0, 26),
        (5296, 'Santo Antônio do Leste', 0, 13),
        (5297, 'Santo Antônio do Leverger', 0, 13),
        (5298, 'São Félix do Araguaia', 0, 13);
-INSERT INTO `cities` (`id`, `name`, `population`, `state_id`)
+INSERT INTO 'cities' ('id', 'name', 'population', 'state_id')
 VALUES (5299, 'Sapezal', 0, 13),
        (5300, 'Serra Nova Dourada', 0, 13),
        (5301, 'Sinop', 0, 13),
@@ -5623,28 +5623,28 @@ VALUES (5299, 'Sapezal', 0, 13),
 -- --------------------------------------------------------
 
 --
--- Table structure for table `regions`
+-- Table structure for table 'regions'
 --
 
-CREATE TABLE `regions`
+CREATE TABLE 'regions'
 (
-    `id`         INT(11)    NOT NULL
+    'id'         INT(11)    NOT NULL
         COMMENT 'ID',
-    `name`       VARCHAR(80) DEFAULT NULL
+    'name'       VARCHAR(80) DEFAULT NULL
         COMMENT 'Name of Region',
-    `pib`        BIGINT(20) NOT NULL
+    'pib'        BIGINT(20) NOT NULL
         COMMENT '2012',
-    `population` INT(11)    NOT NULL
+    'population' INT(11)    NOT NULL
         COMMENT 'Population per region'
 )
     ENGINE = InnoDB
     DEFAULT CHARSET = utf8mb4;
 
 --
--- Dumping data for table `regions`
+-- Dumping data for table 'regions'
 --
 
-INSERT INTO `regions` (`id`, `name`, `pib`, `population`)
+INSERT INTO 'regions' ('id', 'name', 'pib', 'population')
 VALUES (1, 'Norte', 231383000, 17231027),
        (2, 'Nordeste', 595382000, 56560081),
        (3, 'Sudeste', 2424005000, 85115623),
@@ -5654,21 +5654,21 @@ VALUES (1, 'Norte', 231383000, 17231027),
 -- --------------------------------------------------------
 
 --
--- Table structure for table `states`
+-- Table structure for table 'states'
 --
 
-CREATE TABLE `states`
+CREATE TABLE 'states'
 (
-    `id`         INT(11)     NOT NULL
+    'id'         INT(11)     NOT NULL
         COMMENT 'ID',
-    `initials`   CHAR(2)     NOT NULL
+    'initials'   CHAR(2)     NOT NULL
         COMMENT 'Initials of State',
-    `name`       VARCHAR(35) NOT NULL
+    'name'       VARCHAR(35) NOT NULL
         COMMENT 'Name of State',
-    `pib_1000`   INT(11)     NOT NULL,
-    `population` INT(11)     NOT NULL
+    'pib_1000'   INT(11)     NOT NULL,
+    'population' INT(11)     NOT NULL
         COMMENT '2015',
-    `region_id`  INT(11)     NOT NULL
+    'region_id'  INT(11)     NOT NULL
         COMMENT 'Region'
 )
     ENGINE = InnoDB
@@ -5676,10 +5676,10 @@ CREATE TABLE `states`
     COMMENT = 'Tabela de Cadastro de ESTADOS';
 
 --
--- Dumping data for table `states`
+-- Dumping data for table 'states'
 --
 
-INSERT INTO `states` (`id`, `initials`, `name`, `pib_1000`, `population`, `region_id`)
+INSERT INTO 'states' ('id', 'initials', 'name', 'pib_1000', 'population', 'region_id')
 VALUES (1, 'AC', 'Acre', 6767743, 370550, 1),
        (2, 'AL', 'Alagoas', 16385771, 1013773, 2),
        (3, 'AM', 'Amazonas', 64025434, 2057711, 1),
@@ -5710,60 +5710,60 @@ VALUES (1, 'AC', 'Acre', 6767743, 370550, 1),
 
 
 --
--- Indexes for table `cities`
+-- Indexes for table 'cities'
 --
-ALTER TABLE `cities`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `FK_id_state_city` (`state_id`);
+ALTER TABLE 'cities'
+    ADD PRIMARY KEY ('id'),
+    ADD KEY 'FK_id_state_city' ('state_id');
 
 --
--- Indexes for table `regions`
+-- Indexes for table 'regions'
 --
-ALTER TABLE `regions`
-    ADD PRIMARY KEY (`id`);
+ALTER TABLE 'regions'
+    ADD PRIMARY KEY ('id');
 
 --
--- Indexes for table `states`
+-- Indexes for table 'states'
 --
-ALTER TABLE `states`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `id_region` (`region_id`);
+ALTER TABLE 'states'
+    ADD PRIMARY KEY ('id'),
+    ADD KEY 'id_region' ('region_id');
 
 --
--- AUTO_INCREMENT for table `cities`
+-- AUTO_INCREMENT for table 'cities'
 --
-ALTER TABLE `cities`
-    MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT
+ALTER TABLE 'cities'
+    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
         COMMENT 'ID',
     AUTO_INCREMENT = 5571;
 --
--- AUTO_INCREMENT for table `regions`
+-- AUTO_INCREMENT for table 'regions'
 --
-ALTER TABLE `regions`
-    MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT
+ALTER TABLE 'regions'
+    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
         COMMENT 'ID',
     AUTO_INCREMENT = 6;
 --
--- AUTO_INCREMENT for table `states`
+-- AUTO_INCREMENT for table 'states'
 --
-ALTER TABLE `states`
-    MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT
+ALTER TABLE 'states'
+    MODIFY 'id' INT(11) NOT NULL AUTO_INCREMENT
         COMMENT 'ID',
     AUTO_INCREMENT = 28;
 
 --
--- Constraints for table `cities`
+-- Constraints for table 'cities'
 --
-ALTER TABLE `cities`
-    ADD CONSTRAINT `cities_ibfk_1` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`)
+ALTER TABLE 'cities'
+    ADD CONSTRAINT 'cities_ibfk_1' FOREIGN KEY ('state_id') REFERENCES 'states' ('id')
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
 --
--- Constraints for table `states`
+-- Constraints for table 'states'
 --
-ALTER TABLE `states`
-    ADD CONSTRAINT `states_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`)
+ALTER TABLE 'states'
+    ADD CONSTRAINT 'states_ibfk_1' FOREIGN KEY ('region_id') REFERENCES 'regions' ('id')
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
