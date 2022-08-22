@@ -5647,23 +5647,7 @@ ALTER TABLE states
     ADD KEY id_region (region_id);
 
 ALTER TABLE cities
-    MODIFY id INT NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 5571;
-
-ALTER TABLE regions
-    MODIFY id INT NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 6;
+    ADD CONSTRAINT cities_ibfk_1 FOREIGN KEY (state_id) REFERENCES states (id);
 
 ALTER TABLE states
-    MODIFY id INT NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 28;
-
-ALTER TABLE cities
-    ADD CONSTRAINT cities_ibfk_1 FOREIGN KEY (state_id) REFERENCES states (id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE;
-
-ALTER TABLE states
-    ADD CONSTRAINT states_ibfk_1 FOREIGN KEY (region_id) REFERENCES regions (id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE;
+    ADD CONSTRAINT states_ibfk_1 FOREIGN KEY (region_id) REFERENCES regions (id);
