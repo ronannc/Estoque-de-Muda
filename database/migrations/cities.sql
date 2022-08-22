@@ -5642,8 +5642,7 @@ ALTER TABLE regions
     ADD PRIMARY KEY (id);
 
 ALTER TABLE states
-    ADD PRIMARY KEY (id),
-    ADD KEY id_region (region_id);
+    ADD PRIMARY KEY (id);
 
 ALTER TABLE cities
     ADD CONSTRAINT cities_ibfk_1 FOREIGN KEY (state_id) REFERENCES states (id);
