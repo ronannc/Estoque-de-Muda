@@ -5599,7 +5599,7 @@ VALUES (1, 'Norte', 231383000, 17231027),
 CREATE TABLE states
 (
     id         INT     NOT NULL,
-    initials   CHAR     NOT NULL,
+    initials   VARCHAR (2) NOT NULL,
     name       VARCHAR NOT NULL,
     pib_1000   INT     NOT NULL,
     population INT     NOT NULL,
