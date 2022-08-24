@@ -76,7 +76,8 @@
                     {
                         data: 'type.name',
                         name: 'type.name',
-                        title: 'Tipo'
+                        title: 'Tipo',
+                        defaultContent: '-'
                     },
                     {
                         data: 'inventory',
