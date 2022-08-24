@@ -21,7 +21,7 @@ class CreateTypesTable extends Migration
         });
 
         Schema::table( 'species', function ( Blueprint $table ) {
-            $table->unsignedBigInteger( 'type_id' );
+            $table->unsignedBigInteger( 'type_id' )->nullable();
             $table->foreign( 'type_id' )->references( 'id' )->on( 'types' );
         } );
     }
