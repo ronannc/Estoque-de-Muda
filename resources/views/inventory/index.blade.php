@@ -101,7 +101,7 @@
 
             dataTable.on('click', '.delete', function () {
                 var id = $(this).data("id");
-                $('#formDelete').attr('action', "nursery/" + id + "")
+                $('#formDelete').attr('action', "inventory/" + id + "")
                 $('#confirmDiolog').modal('show')
             });
         });

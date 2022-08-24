@@ -24,10 +24,11 @@ class StoreNurseryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'    => 'required|max:120',
-            'address' => 'required|max:120',
-            'number'  => 'required|max:120',
-            'city_id' => 'required|max:120',
+            'name'         => 'required|max:120',
+            'address'      => 'required|max:120',
+            'neighborhood' => 'required|max:120',
+            'number'       => 'required|max:120',
+            'city_id'      => 'required|max:120',
         ];
     }
 }

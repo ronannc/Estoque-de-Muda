@@ -5,6 +5,7 @@
     <input class="form-control"
            id="responsible"
            name="responsible"
+           value="{{ $data['responsible'] ?? old('responsible') }}"
            @if(isset($disable) && $disable) disabled @endif
-           @if(isset($required) && $required) required @endif>{{ $data['responsible'] ?? old('responsible') }}</input>
+           @if(isset($required) && $required) required @endif></input>
 </div>

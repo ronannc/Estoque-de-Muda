@@ -24,7 +24,10 @@ class StoreSpecieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:120',
+            'name'     => 'required|max:120',
+            'specie'   => 'required|max:120',
+            'group_id' => 'required',
+            'type_id'  => 'required',
         ];
     }
 }

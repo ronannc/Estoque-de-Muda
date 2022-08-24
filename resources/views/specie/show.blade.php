@@ -16,7 +16,7 @@
         </div>
         <div class="card-footer">
             <div class="row">
-                <div class="col-sm-4 border-right">
+                <div class="col-sm-3 border-right">
                     <div class="description-block">
                         <h5 class="description-header">{{$data->name}}</h5>
                         <span class="description-text">Nome Comum</span>
@@ -24,7 +24,7 @@
 
                 </div>
 
-                <div class="col-sm-4 border-right">
+                <div class="col-sm-3 border-right">
                     <div class="description-block">
                         <h5 class="description-header">{{$data->specie}}</h5>
                         <span class="description-text">Espécie</span>
@@ -32,10 +32,18 @@
 
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-3 border-right">
                     <div class="description-block">
                         <h5 class="description-header">{{ $data->group->name }}</h5>
                         <span class="description-text">Grupo</span>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="description-block">
+                        <h5 class="description-header">{{ $data->type->name }}</h5>
+                        <span class="description-text">Tipo</span>
                     </div>
 
                 </div>
@@ -135,7 +143,7 @@
 
             dataTable.on('click', '.delete', function () {
                 var id = $(this).data("id");
-                $('#formDelete').attr('action', "nursery/" + id + "")
+                $('#formDelete').attr('action', "specie/" + id + "")
                 $('#confirmDiolog').modal('show')
             });
         });

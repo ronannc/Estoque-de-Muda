@@ -232,9 +232,12 @@ return [
     'dashboard_url'      => 'home',
     'logout_url'         => 'logout',
     'login_url'          => 'login',
-    'register_url'       => 'register',
-    'password_reset_url' => 'password/reset',
-    'password_email_url' => 'password/email',
+//    'register_url'       => 'register',
+    'register_url'       => false,
+//    'password_reset_url' => 'password/reset',
+    'password_reset_url' => false,
+//    'password_email_url' => 'password/email',
+    'password_email_url' => false,
     'profile_url'        => false,
 
     /*
@@ -271,19 +274,33 @@ return [
             'text'    => 'Grupos',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-object-group',
-            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
             'submenu' => [
                 [
                     'text' => 'Listar',
                     'url'  => 'group',
                     'icon' => 'fas fa-fw fa-list',
-                    //                    'can'  => 'Listar Grupos'
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'group/create',
                     'icon' => 'fas fa-fw fa-plus',
-                    //                    'can'  => 'Criar Grupos'
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Tipo',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-object-ungroup',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'type',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'type/create',
+                    'icon' => 'fas fa-fw fa-plus',
                 ],
             ],
         ],
@@ -291,19 +308,16 @@ return [
             'text'    => 'Viveiros',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-store',
-            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
             'submenu' => [
                 [
                     'text' => 'Listar',
                     'url'  => 'nursery',
                     'icon' => 'fas fa-fw fa-list',
-                    //                    'can'  => 'Listar Grupos'
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'nursery/create',
                     'icon' => 'fas fa-fw fa-plus',
-                    //                    'can'  => 'Criar Grupos'
                 ],
             ],
         ],
@@ -311,39 +325,50 @@ return [
             'text'    => 'Espécies',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-seedling',
-            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
             'submenu' => [
                 [
                     'text' => 'Listar',
                     'url'  => 'specie',
                     'icon' => 'fas fa-fw fa-list',
-                    //                    'can'  => 'Listar Grupos'
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'specie/create',
                     'icon' => 'fas fa-fw fa-plus',
-                    //                    'can'  => 'Criar Grupos'
                 ],
             ],
         ],
         [
-            'text'    => 'Inventario',
+            'text'    => 'Inventário',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-dolly-flatbed',
-            //            'can'     => [ 'Listar Grupos', 'Criar Grupos' ],
             'submenu' => [
                 [
                     'text' => 'Listar',
                     'url'  => 'inventory',
                     'icon' => 'fas fa-fw fa-list',
-                    //                    'can'  => 'Listar Grupos'
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'inventory/create',
                     'icon' => 'fas fa-fw fa-plus',
-                    //                    'can'  => 'Criar Grupos'
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Usuários',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'user',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'user/create',
+                    'icon' => 'fas fa-fw fa-plus',
                 ],
             ],
         ],

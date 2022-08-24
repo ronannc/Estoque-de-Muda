@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Espécies')
+@section('title', 'Tipos')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Espécies</h1>
+    <h1 class="m-0 text-dark">Tipos</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="card-header">
             <h3 class="card-title">Cadastro</h3>
         </div>
-        <form action="{{ route('specie.store') }}"
+        <form action="{{ route('type.store') }}"
               id="form_validation"
               method="post"
               class="horizontal-form">
@@ -21,19 +21,12 @@
                 {{ csrf_field() }}
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-4">
-                            @include('components.input-name', ['required' => true])
-                        </div>
-                        <div class="col-4">
-                            @include('components.input-specie', ['required' => true])
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            @include('components.select-group', ['required' => true])
-                        </div>
-                        <div class="col-4">
-                            @include('components.select-type', ['required' => true])
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    @include('components.input-name', ['required' => true])
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

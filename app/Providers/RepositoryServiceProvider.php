@@ -7,18 +7,21 @@ use App\Models\Group;
 use App\Models\Inventory;
 use App\Models\Nursery;
 use App\Models\Specie;
+use App\Models\Type;
 use App\Models\User;
 use App\Repositories\Contracts\CityRepository;
 use App\Repositories\Contracts\GroupRepository;
 use App\Repositories\Contracts\InventoryRepository;
 use App\Repositories\Contracts\NurseryRepository;
 use App\Repositories\Contracts\SpecieRepository;
+use App\Repositories\Contracts\TypeRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentCityRepository;
 use App\Repositories\EloquentGroupRepository;
 use App\Repositories\EloquentInventoryRepository;
 use App\Repositories\EloquentNurseryRepository;
 use App\Repositories\EloquentSpecieRepository;
+use App\Repositories\EloquentTypeRepository;
 use App\Repositories\EloquentUserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,8 +48,8 @@ class  RepositoryServiceProvider extends ServiceProvider
             return new EloquentGroupRepository( new Group() );
         } );
 
-        $this->app->bind( Grou::class, function () {
-            return new EloquentGroupRepository( new Group() );
+        $this->app->bind( TypeRepository::class, function () {
+            return new EloquentTypeRepository( new Type() );
         } );
 
         $this->app->bind( InventoryRepository::class, function () {
@@ -84,6 +87,7 @@ class  RepositoryServiceProvider extends ServiceProvider
             Nursery::class,
             Inventory::class,
             City::class,
+            Type::class,
         ];
     }
 }

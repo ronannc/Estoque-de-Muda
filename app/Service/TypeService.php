@@ -2,31 +2,13 @@
 
 namespace App\Service;
 
-use App\Models\Inventory;
-use App\Repositories\Contracts\GroupRepository;
-use App\Repositories\Contracts\SpecieRepository;
 use App\Repositories\Contracts\TypeRepository;
 
-class SpecieService
+class TypeService
 {
-    protected $specieRepository;
-    protected $groupRepository;
     protected $typeRepository;
 
-    public function __construct( SpecieRepository $specieRepository, GroupRepository $groupRepository, TypeRepository $typeRepository )
-    {
-        $this->specieRepository = $specieRepository;
-        $this->groupRepository  = $groupRepository;
-        $this->typeRepository   = $typeRepository;
-    }
-
-    public function getExtraData()
-    {
-        return [
-            'groups' => $this->groupRepository->all(),
-            'types'  => $this->typeRepository->all()
-        ];
-    }
+    public function __construct( TypeRepository $typeRepository ) { $this->typeRepository = $typeRepository; }
 
     /**
      * @param array $data
@@ -35,7 +17,7 @@ class SpecieService
     public function store( array $data )
     {
         try {
-            return $this->specieRepository->save( $data );
+            return $this->typeRepository->save( $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -49,11 +31,10 @@ class SpecieService
      * @param $id
      * @return array
      */
-    public function update( array $data, $id )
+    public function update( array $data, $model )
     {
         try {
-            $model = $this->specieRepository->findOne( $id );
-            return $this->specieRepository->update( $model, $data );
+            return $this->typeRepository->update( $model, $data );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -69,8 +50,8 @@ class SpecieService
     public function destroy( $id )
     {
         try {
-            $model = $this->specieRepository->findOneOrFail( $id );
-            $this->specieRepository->delete( $model );
+            $model = $this->typeRepository->findOneOrFail( $id );
+            $this->typeRepository->delete( $model );
             return [
                 'error'   => false,
                 'message' => 'Excluído com sucesso !!!'
@@ -89,7 +70,22 @@ class SpecieService
     public function all()
     {
         try {
-            return $this->specieRepository->all();
+            return $this->typeRepository->all();
+        } catch ( \Exception $exception ) {
+            return [
+                'error'   => true,
+                'message' => $exception->getMessage()
+            ];
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function paginate()
+    {
+        try {
+            return $this->typeRepository->paginate();
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -105,19 +101,12 @@ class SpecieService
     public function findOne( $id )
     {
         try {
-            return $this->specieRepository->findOne( $id );
+            return $this->typeRepository->findOne( $id );
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
                 'message' => $exception->getMessage()
             ];
         }
-    }
-
-    public function sumInventory( $inventory )
-    {
-        $sumStore = $inventory->where( 'type', Inventory::STORE )->sum( 'quantity' );
-        $sumExit  = $inventory->where( 'type', Inventory::EXIT )->sum( 'quantity' );
-        return $sumStore - $sumExit;
     }
 }

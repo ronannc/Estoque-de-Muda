@@ -12,7 +12,7 @@
         <div class="card-header">
             <h3 class="card-title">Edição</h3>
         </div>
-        <form action="{{ route('nursery.update', $data) }}"
+        <form action="{{ route('inventory.update', $data) }}"
               id="form_validation"
               method="post"
               class="horizontal-form">
@@ -21,25 +21,35 @@
                 {{ csrf_field() }}
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-8">
-                                    @include('components.input-name', ['required' => true])
-                                </div>
-                            </div>
+                        <div class="col-5">
+                            @include('components.input-date', ['required' => true])
                         </div>
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-3">
-                                    @include('components.select-city', ['required' => true])
-                                </div>
-                                <div class="col-3">
-                                    @include('components.input-address', ['required' => true])
-                                </div>
-                                <div class="col-3">
-                                    @include('components.input-number', ['required' => true])
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            @include('components.select-movement_type', ['required' => true])
+                        </div>
+                        <div class="col-4">
+                            @include('components.input-quantity', ['required' => true])
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5">
+                            @include('components.select-nursery', ['required' => true])
+                        </div>
+                        <div class="col-4">
+                            @include('components.select-specie', ['required' => true])
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            @include('components.input-observation', ['required' => true])
+                        </div>
+                        <div class="col-3">
+                            @include('components.input-responsible', ['required' => true])
+                        </div>
+                        <div class="col-3">
+                            @include('components.input-destiny', ['required' => true])
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\GreaterThanOrEqualSpecie;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreInventoryRequest extends FormRequest
@@ -24,9 +25,15 @@ class StoreInventoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'date'     => 'required|date',
-            'quantity' => 'required|integer',
-            'type'     => 'required',
+            'date'        => 'required|date',
+            'type'        => 'required',
+            'destiny'     => 'required',
+            'nursery_id'  => 'required',
+            'specie_id'   => 'required',
+            'quantity'    => [ 'required', 'integer', new GreaterThanOrEqualSpecie( $this->specie_id, $this->type ) ],
+            'observation' => 'required',
+            'responsible' => 'required',
+
         ];
     }
 }

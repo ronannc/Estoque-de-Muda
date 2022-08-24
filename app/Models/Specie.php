@@ -16,12 +16,18 @@ class Specie extends Model
     protected $fillable = [
         'name',
         'specie',
-        'group_id'
+        'group_id',
+        'type_id',
     ];
 
     public function group(): BelongsTo
     {
         return $this->belongsTo( Group::class );
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo( Type::class );
     }
 
     public function inventories(): HasMany

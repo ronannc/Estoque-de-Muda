@@ -22,7 +22,7 @@ class SpecieController extends Controller
     public function index( Request $request )
     {
         if ( $request->ajax() ) {
-            return ( new DataTables )->eloquent( Specie::query()->with( 'group' ) )
+            return ( new DataTables )->eloquent( Specie::query()->with( 'group', 'type', 'inventories' ) )
                              ->addIndexColumn()
                              ->editColumn( 'inventory', function ( $row ) {
                                  return "<span class='badge bg-primary'>" . $this->service->sumInventory( $row->inventories ) . "</span>";

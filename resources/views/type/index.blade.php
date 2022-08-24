@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Espécies')
+@section('title', 'Tipos')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Espécies</h1>
+    <h1 class="m-0 text-dark">Tipos</h1>
 @stop
 
 @section('content')
@@ -20,10 +20,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Especie</th>
-                    <th>Grupo</th>
-                    <th>Tipo</th>
-                    <th>Estoque</th>
                     <th class="text-right">AÇÕES</th>
                 </tr>
                 </thead>
@@ -51,7 +47,7 @@
                 buttons: [
                     'pageLength'
                 ],
-                ajax: "{{ route('specie.index') }}",
+                ajax: "{{ route('type.index') }}",
                 columns: [
                     {
                         data: 'id',
@@ -62,29 +58,6 @@
                         data: 'name',
                         name: 'name',
                         title: 'Nome'
-                    },
-                    {
-                        data: 'specie',
-                        name: 'specie',
-                        title: 'Especie'
-                    },
-                    {
-                        data: 'group.name',
-                        name: 'group.name',
-                        title: 'Grupo'
-                    },
-                    {
-                        data: 'type.name',
-                        name: 'type.name',
-                        title: 'Tipo'
-                    },
-                    {
-                        data: 'inventory',
-                        name: 'inventory',
-                        title: 'Estoque',
-                        defaultContent: '-',
-                        orderable: false,
-                        searchable: false
                     },
                     {
                         data: 'action',
@@ -98,7 +71,7 @@
 
             dataTable.on('click', '.delete', function () {
                 var id = $(this).data("id");
-                $('#formDelete').attr('action', "specie/" + id + "")
+                $('#formDelete').attr('action', "type/" + id + "")
                 $('#confirmDiolog').modal('show')
             });
         });

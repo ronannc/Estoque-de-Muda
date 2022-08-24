@@ -26,6 +26,7 @@ class UpdateNurseryRequest extends FormRequest
         return [
             'name'    => 'required|max:120',
             'address' => 'required|max:120',
+            'neighborhood' => 'required|max:120',
             'number'  => 'required|max:120',
             'city_id' => 'required|max:120',
         ];
