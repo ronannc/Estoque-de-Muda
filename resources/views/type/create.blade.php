@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Tipos')
+@section('title', 'Tamanhos')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Tipos</h1>
+    <h1 class="m-0 text-dark">Tamanhos</h1>
 @stop
 
 @section('content')
     @include('components.flash-messages')
-    <div class="card card-primary">
+    <div class="card card-olive">
         <div class="card-header">
             <h3 class="card-title">Cadastro</h3>
         </div>

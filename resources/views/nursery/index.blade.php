@@ -10,7 +10,7 @@
     @include('components.flash-messages')
     @include('components.modal-delete')
 
-    <div class="card card-primary">
+    <div class="card card-olive">
         <div class="card-header">
             <h3 class="card-title">Listagem</h3>
         </div>

@@ -8,7 +8,7 @@
 
 @section('content')
     @include('components.flash-messages')
-    <div class="card card-primary">
+    <div class="card card-olive">
         <div class="card-header">
             <h3 class="card-title">Edição</h3>
         </div>

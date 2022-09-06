@@ -10,7 +10,7 @@
     @include('components.flash-messages')
     @include('components.modal-delete')
 
-    <div class="card card-primary">
+    <div class="card card-olive">
         <div class="card-header">
             <h3 class="card-title">Listagem</h3>
         </div>
@@ -21,7 +21,9 @@
                     <th>ID</th>
                     <th>Data</th>
                     <th>Quantidade</th>
+                    <th>Nome Comun</th>
                     <th>Especie</th>
+                    <th>Tamanho</th>
                     <th>Viveiro</th>
                     <th>Tipo</th>
                     <th>Responsável</th>
@@ -72,7 +74,17 @@
                     {
                         data: 'specie.name',
                         name: 'specie.name',
+                        title: 'Nome Comum'
+                    },
+                    {
+                        data: 'specie.specie',
+                        name: 'specie.specie',
                         title: 'Especie'
+                    },
+                    {
+                        data: 'specie.type.name',
+                        name: 'specie.type.name',
+                        title: 'Tamanho'
                     },
                     {
                         data: 'nursery.name',
