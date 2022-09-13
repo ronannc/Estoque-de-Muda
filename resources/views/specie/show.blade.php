@@ -43,7 +43,7 @@
                 <div class="col-sm-3">
                     <div class="description-block">
                         <h5 class="description-header">{{ $data->type->name }}</h5>
-                        <span class="description-text">Tipo</span>
+                        <span class="description-text">Tamanho</span>
                     </div>
 
                 </div>

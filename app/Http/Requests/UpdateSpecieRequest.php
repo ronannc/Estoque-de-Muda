@@ -26,8 +26,8 @@ class UpdateSpecieRequest extends FormRequest
         return [
             'name' => 'required|max:120',
             'specie' => 'required|max:120',
-            'group_id' => 'required',
-            'type_id' => 'required',
+            'group_id' => 'required|exists:groups,id',
+            'type_id' => 'required|exists:types,id',
         ];
     }
 }

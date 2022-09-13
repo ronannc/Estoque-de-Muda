@@ -50,7 +50,7 @@ class TypeController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Tipo registrado com sucesso!' );
+        session()->flash( 'status', 'Tamanho registrado com sucesso!' );
         return redirect( route( 'type.index' ) );
     }
 
@@ -69,7 +69,7 @@ class TypeController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Tipo atualizado com sucesso!' );
+        session()->flash( 'status', 'Tamanho atualizado com sucesso!' );
         return redirect( route( 'type.index' ) );
     }
 
@@ -82,7 +82,7 @@ class TypeController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Tipo deletado com sucesso!' );
+        session()->flash( 'status', 'Tamanho deletado com sucesso!' );
         return back();
     }
 }

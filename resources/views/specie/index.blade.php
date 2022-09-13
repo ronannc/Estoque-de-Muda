@@ -22,7 +22,7 @@
                     <th>Nome</th>
                     <th>Especie</th>
                     <th>Grupo</th>
-                    <th>Tipo</th>
+                    <th>Tamanho</th>
                     <th>Estoque</th>
                     <th class="text-right">AÇÕES</th>
                 </tr>
@@ -76,7 +76,7 @@
                     {
                         data: 'type.name',
                         name: 'type.name',
-                        title: 'Tipo',
+                        title: 'Tamanho',
                         defaultContent: '-'
                     },
                     {

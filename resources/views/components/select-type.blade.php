@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label class="col-form-label" for="type_id">Tipo @if(isset($required) && $required)
+    <label class="col-form-label" for="type_id">Tamanho @if(isset($required) && $required)
             <i class="fa fa-asterisk" style="color: red"></i>
         @endif</label>
     <select class="select2" name="type_id" id="type_id" style="width: 100%" @if(isset($required) && $required) required @endif>

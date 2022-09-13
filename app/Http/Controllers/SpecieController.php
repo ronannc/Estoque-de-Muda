@@ -55,7 +55,7 @@ class SpecieController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro registrado com sucesso!' );
+        session()->flash( 'status', 'Espécie registrado com sucesso!' );
         return redirect( route( 'specie.index' ) );
     }
 
@@ -66,16 +66,16 @@ class SpecieController extends Controller
         return view( 'specie.edit', compact( 'data', 'extraData' ) );
     }
 
-    public function update( UpdateSpecieRequest $request, Specie $specie )
+    public function update( UpdateSpecieRequest $request, $id )
     {
-        $resultFromStore = $this->service->update( $request->all(), $specie );
+        $resultFromStore = $this->service->update( $request->all(), $id );
 
         if ( !empty( $resultFromStore[ 'error' ] ) ) {
             session()->flash( 'error', $resultFromStore[ 'message' ] );
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro atualizado com sucesso!' );
+        session()->flash( 'status', 'Espécie atualizado com sucesso!' );
         return redirect( route( 'specie.index' ) );
     }
 
@@ -94,7 +94,7 @@ class SpecieController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro deletado com sucesso!' );
+        session()->flash( 'status', 'Espécie deletado com sucesso!' );
         return back();
     }
 }

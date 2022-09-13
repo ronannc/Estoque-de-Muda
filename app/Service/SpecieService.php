@@ -47,7 +47,7 @@ class SpecieService
     /**
      * @param array $data
      * @param $id
-     * @return array
+     * @return array|\Illuminate\Database\Eloquent\Model
      */
     public function update( array $data, $id )
     {
