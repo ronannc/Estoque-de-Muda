@@ -26,22 +26,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-5">
-                            @include('components.select-movement_type', ['required' => true])
-                        </div>
-                        <div class="col-4">
-                            @include('components.input-quantity', ['required' => true])
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5">
-                            @include('components.select-nursery', ['required' => true])
-                        </div>
-                        <div class="col-4">
-                            @include('components.select-specie', ['required' => true])
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-3">
                             @include('components.input-observation', ['required' => true])
                         </div>
@@ -52,7 +36,29 @@
                             @include('components.input-destiny', ['required' => true])
                         </div>
                     </div>
+                    <div id="move_group">
+                        <div class="row groupCopy">
+                            <div class="col-2">
+                                @include('components.select_array-movement_type', ['required' => true])
+                            </div>
+                            <div class="col-3">
+                                @include('components.input_array-quantity', ['required' => true])
+                            </div>
+                            <div class="col-3">
+                                @include('components.select_array-nursery', ['required' => true])
+                            </div>
+                            <div class="col-4">
+                                @include('components.select_array-specie', ['required' => true])
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-success"
+                               id="newGroup">Adicionar <i class="fa fa-plus"></i></a>
+                    &nbsp;
+                    <a class="btn btn-danger"
+                       id="removeGroup">Remover <i class="fa fa-trash"></i></a>
                 </div>
+
                 <div class="card-footer">
                     @include('components.form-action')
                 </div>
@@ -61,3 +67,23 @@
         </form>
     </div>
 @stop
+
+@push('js')
+    <script>
+        $(document).ready(function () {
+
+            $('#newGroup').click(function () {
+                $('select.select2').select2('destroy');
+                $('#move_group .groupCopy:last-child').clone().appendTo('#move_group');
+                $('.select2').select2();
+            });
+
+            $('#removeGroup').click(function () {
+                console.log($('#move_group .groupCopy').length)
+                if ($('#move_group .groupCopy').length > 1) {
+                    $('#move_group .groupCopy:last-child').remove();
+                }
+            });
+        });
+    </script>
+@endpush

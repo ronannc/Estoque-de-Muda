@@ -5,7 +5,7 @@
     <input value="{{ $data['quantity'] ?? old('quantity') }}"
            type="number"
            class="form-control"
-           name="quantity"
+           name="quantity[]"
            placeholder="Quantidade"
            @if(isset($disable) && $disable) disabled @endif
            @if(isset($required) && $required) required @endif>

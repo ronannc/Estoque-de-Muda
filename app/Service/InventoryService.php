@@ -29,12 +29,20 @@ class InventoryService
 
     /**
      * @param array $data
-     * @return array
+     * @return array|bool
      */
     public function store( array $data )
     {
         try {
-            return $this->inventoryRepository->save( $data );
+            $oneData = $data;
+            foreach ( $data[ 'type' ] as $key => $type ) {
+                $oneData[ 'type' ]       = $type;
+                $oneData[ 'quantity' ]   = $data[ 'quantity' ][ $key ];
+                $oneData[ 'nursery_id' ] = $data[ 'nursery_id' ][ $key ];
+                $oneData[ 'specie_id' ]  = $data[ 'specie_id' ][ $key ];
+                $this->inventoryRepository->save( $oneData );
+            }
+            return true;
         } catch ( \Exception $exception ) {
             return [
                 'error'   => true,
@@ -46,7 +54,7 @@ class InventoryService
     /**
      * @param array $data
      * @param $id
-     * @return array
+     * @return array|\Illuminate\Database\Eloquent\Model
      */
     public function update( array $data, $id )
     {

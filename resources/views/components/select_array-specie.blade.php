@@ -2,7 +2,7 @@
     <label class="col-form-label" for="specie_id">Especie @if(isset($required) && $required)
             <i class="fa fa-asterisk" style="color: red"></i>
         @endif</label>
-    <select class="select2 specie_id" name="specie_id" style="width: 100%" @if(isset($required) && $required) required @endif>
+    <select class="select2 specie_id" name="specie_id[]" style="width: 100%" @if(isset($required) && $required) required @endif>
         @if(isset($extraData['species']))
             @foreach ($extraData['species'] as $key => $specie)
                 @if(!empty($data['specie_id']))

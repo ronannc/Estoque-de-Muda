@@ -72,16 +72,16 @@ class InventoryController extends Controller
         return view( 'inventory.edit', compact( 'data', 'extraData' ) );
     }
 
-    public function update( UpdateInventoryRequest $request, Inventory $inventory )
+    public function update( UpdateInventoryRequest $request, $id )
     {
-        $resultFromStore = $this->service->update( $request->all(), $inventory );
+        $resultFromStore = $this->service->update( $request->all(), $id );
 
         if ( !empty( $resultFromStore[ 'error' ] ) ) {
             session()->flash( 'error', $resultFromStore[ 'message' ] );
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro atualizado com sucesso!' );
+        session()->flash( 'status', 'Movientação de Estoque atualizado com sucesso!' );
         return redirect( route( 'inventory.index' ) );
     }
 
@@ -94,7 +94,7 @@ class InventoryController extends Controller
             return back();
         }
 
-        session()->flash( 'status', 'Viveiro deletado com sucesso!' );
+        session()->flash( 'status', 'Movientação de Estoque deletado com sucesso!' );
         return back();
     }
 }
