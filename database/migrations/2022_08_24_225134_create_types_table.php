@@ -20,7 +20,7 @@ class CreateTypesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table( 'species', function ( Blueprint $table ) {
+        Schema::table( 'inventories', function ( Blueprint $table ) {
             $table->unsignedBigInteger( 'type_id' )->nullable();
             $table->foreign( 'type_id' )->references( 'id' )->on( 'types' );
         } );

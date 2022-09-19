@@ -27,7 +27,6 @@ class StoreSpecieRequest extends FormRequest
             'name'     => 'required|max:120',
             'specie'   => 'required|max:120',
             'group_id' => 'required',
-            'type_id'  => 'required',
         ];
     }
 }

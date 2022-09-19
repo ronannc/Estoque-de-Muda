@@ -32,9 +32,6 @@
                         <div class="col-4">
                             @include('components.select-group', ['required' => true])
                         </div>
-                        <div class="col-4">
-                            @include('components.select-type', ['required' => true])
-                        </div>
                     </div>
                 </div>
                 <div class="card-footer">

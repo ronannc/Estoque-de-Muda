@@ -22,7 +22,6 @@
                     <th>Nome</th>
                     <th>Especie</th>
                     <th>Grupo</th>
-                    <th>Tamanho</th>
                     <th>Estoque</th>
                     <th class="text-right">AÇÕES</th>
                 </tr>
@@ -72,12 +71,6 @@
                         data: 'group.name',
                         name: 'group.name',
                         title: 'Grupo'
-                    },
-                    {
-                        data: 'type.name',
-                        name: 'type.name',
-                        title: 'Tamanho',
-                        defaultContent: '-'
                     },
                     {
                         data: 'inventory',

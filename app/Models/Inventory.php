@@ -20,6 +20,7 @@ class Inventory extends Model
         'type',
         'specie_id',
         'nursery_id',
+        'type_id',
         'date',
         'observation',
         'responsible',
@@ -34,5 +35,10 @@ class Inventory extends Model
     public function nursery(): BelongsTo
     {
         return $this->belongsTo( Nursery::class );
+    }
+
+    public function type_size(): BelongsTo
+    {
+        return $this->belongsTo( Type::class, 'type_id' );
     }
 }

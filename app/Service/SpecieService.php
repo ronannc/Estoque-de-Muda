@@ -24,7 +24,6 @@ class SpecieService
     {
         return [
             'groups' => $this->groupRepository->all(),
-            'types'  => $this->typeRepository->all()
         ];
     }
 
@@ -119,5 +118,15 @@ class SpecieService
         $sumStore = $inventory->where( 'type', Inventory::STORE )->sum( 'quantity' );
         $sumExit  = $inventory->where( 'type', Inventory::EXIT )->sum( 'quantity' );
         return $sumStore - $sumExit;
+    }
+
+    public function sumInventoryForSize( $inventories )
+    {
+        return $inventories->groupBy('type_size.name')->transform(function($item){
+
+            $sumStore = $item->where( 'type', Inventory::STORE )->sum( 'quantity' );
+            $sumExit  = $item->where( 'type', Inventory::EXIT )->sum( 'quantity' );
+            return $sumStore - $sumExit;
+        });
     }
 }

@@ -82,8 +82,8 @@
                         title: 'Especie'
                     },
                     {
-                        data: 'specie.type.name',
-                        name: 'specie.type.name',
+                        data: 'type_size.name',
+                        name: 'type_size.name',
                         title: 'Tamanho'
                     },
                     {

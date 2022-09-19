@@ -16,7 +16,7 @@
         </div>
         <div class="card-footer">
             <div class="row">
-                <div class="col-sm-3 border-right">
+                <div class="col-sm-4 border-right">
                     <div class="description-block">
                         <h5 class="description-header">{{$data->name}}</h5>
                         <span class="description-text">Nome Comum</span>
@@ -24,7 +24,7 @@
 
                 </div>
 
-                <div class="col-sm-3 border-right">
+                <div class="col-sm-4 border-right">
                     <div class="description-block">
                         <h5 class="description-header">{{$data->specie}}</h5>
                         <span class="description-text">Espécie</span>
@@ -32,26 +32,25 @@
 
                 </div>
 
-                <div class="col-sm-3 border-right">
+                <div class="col-sm-4">
                     <div class="description-block">
                         <h5 class="description-header">{{ $data->group->name }}</h5>
                         <span class="description-text">Grupo</span>
                     </div>
-
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="description-block">
-                        <h5 class="description-header">{{ $data->type->name }}</h5>
-                        <span class="description-text">Tamanho</span>
-                    </div>
-
                 </div>
 
             </div>
 
         </div>
         <div class="card-body">
+            <div class="row mb-4">
+                @foreach($data['for_size'] as $size => $count)
+                <div class="col-2">
+                        <h5 class="description-header">{{$size}}</h5>
+                        <span class="description-text">Qtd: {{$count}}</span>
+                </div>
+                @endforeach
+            </div>
             <table id="table" class="table nowrap table-striped table-hover display" style="width:100%">
                 <thead>
                 <tr>
@@ -61,7 +60,8 @@
                     <th>Espécie ID</th>
                     <th>Espécie</th>
                     <th>Viveiro</th>
-                    <th>Tipo</th>
+                    <th>Tamanho</th>
+                    <th>tipo</th>
                     <th>Responsável</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -121,6 +121,11 @@
                         data: 'nursery.name',
                         name: 'nursery.name',
                         title: 'Viveiro'
+                    },
+                    {
+                        data: 'type_size.name',
+                        name: 'type_size.name',
+                        title: 'Tamanho'
                     },
                     {
                         data: 'type',

@@ -5,25 +5,29 @@ namespace App\Service;
 use App\Repositories\Contracts\InventoryRepository;
 use App\Repositories\Contracts\NurseryRepository;
 use App\Repositories\Contracts\SpecieRepository;
+use App\Repositories\Contracts\TypeRepository;
 
 class InventoryService
 {
     protected $inventoryRepository;
     protected $specieRepository;
     protected $nurseryRepository;
+    protected $typeRepository;
 
-    public function __construct( InventoryRepository $inventoryRepository, SpecieRepository $specieRepository, NurseryRepository $nurseryRepository )
+    public function __construct( InventoryRepository $inventoryRepository, SpecieRepository $specieRepository, NurseryRepository $nurseryRepository, TypeRepository $typeRepository )
     {
         $this->inventoryRepository = $inventoryRepository;
         $this->specieRepository    = $specieRepository;
         $this->nurseryRepository   = $nurseryRepository;
+        $this->typeRepository      = $typeRepository;
     }
 
     public function getExtraData()
     {
         return [
             'species'   => $this->specieRepository->all(),
-            'nurseries' => $this->nurseryRepository->all()
+            'nurseries' => $this->nurseryRepository->all(),
+            'types'     => $this->typeRepository->all()
         ];
     }
 
@@ -40,6 +44,7 @@ class InventoryService
                 $oneData[ 'quantity' ]   = $data[ 'quantity' ][ $key ];
                 $oneData[ 'nursery_id' ] = $data[ 'nursery_id' ][ $key ];
                 $oneData[ 'specie_id' ]  = $data[ 'specie_id' ][ $key ];
+                $oneData[ 'type_id' ]    = $data[ 'type_id' ][ $key ];
                 $this->inventoryRepository->save( $oneData );
             }
             return true;

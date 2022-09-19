@@ -47,8 +47,11 @@
                             <div class="col-3">
                                 @include('components.select_array-nursery', ['required' => true])
                             </div>
-                            <div class="col-4">
+                            <div class="col-2">
                                 @include('components.select_array-specie', ['required' => true])
+                            </div>
+                            <div class="col-2">
+                                @include('components.select_array-type', ['required' => true])
                             </div>
                         </div>
                     </div>
