@@ -11,7 +11,7 @@
 
     <div class="card card-widget widget-user">
 
-        <div class="widget-user-header bg-info" style="height: 60px">
+        <div class="widget-user-header bg-olive" style="height: 60px">
             <h5 class="widget-user-username">Espécie</h5>
         </div>
         <div class="card-footer">
