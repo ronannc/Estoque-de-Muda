@@ -17,7 +17,7 @@ Route::get( '/', function () {
     return view( 'auth.login' );
 } );
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 Route::get( '/inventory/list/{specie_id}', [ App\Http\Controllers\InventoryController::class, 'index' ] )->name( 'inventory.list' );
 Route::get( '/home', [ App\Http\Controllers\HomeController::class, 'index' ] )->name( 'home' );
