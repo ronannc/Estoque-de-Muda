@@ -1,7 +1,7 @@
 CREATE TABLE cities
 (
     id         INT                        NOT NULL,
-    name       VARCHAR                    NOT NULL,
+    name       VARCHAR  (255)                  NOT NULL,
     population INT                        NOT NULL,
     state_id   INT                        NOT NULL
 );
@@ -5584,7 +5584,7 @@ VALUES (5299, 'Sapezal', 0, 13),
 CREATE TABLE regions
 (
     id         INT    NOT NULL,
-    name       VARCHAR DEFAULT NULL,
+    name       VARCHAR(255) DEFAULT NULL,
     pib        BIGINT NOT NULL,
     population INT    NOT NULL
 );
@@ -5600,7 +5600,7 @@ CREATE TABLE states
 (
     id         INT     NOT NULL,
     initials   VARCHAR (2) NOT NULL,
-    name       VARCHAR NOT NULL,
+    name       VARCHAR(255) NOT NULL,
     pib_1000   INT     NOT NULL,
     population INT     NOT NULL,
     region_id  INT     NOT NULL
