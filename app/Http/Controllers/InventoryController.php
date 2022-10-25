@@ -26,7 +26,7 @@ class InventoryController extends Controller
                 if($specie_id){
                     $q->where('specie_id',$specie_id );
                 }
-            })->with( ['type_size', 'nursery', 'specie'] ) )
+            })->with( ['type_size', 'nursery', 'specie'] )->orderByDesc('date') )
                              ->addIndexColumn()
                              ->editColumn( 'type', function ( $row ) {
                                  return $row[ 'type' ] = $row[ 'type' ] == Inventory::STORE ? '<i class="fas fa-sign-in-alt" style="color: green"></i> ENTRADA' : '<i class="fas fa-sign-out-alt" style="color: red"></i> SAIDA';
