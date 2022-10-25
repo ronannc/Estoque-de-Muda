@@ -123,7 +123,15 @@ class SpecieService
     public function sumInventoryForSize( $inventories )
     {
         return $inventories->groupBy('type_size.name')->transform(function($item){
+            $sumStore = $item->where( 'type', Inventory::STORE )->sum( 'quantity' );
+            $sumExit  = $item->where( 'type', Inventory::EXIT )->sum( 'quantity' );
+            return  $sumStore - $sumExit;
+        });
+    }
 
+    public function sumInventoryForSizeById( $inventories )
+    {
+        return $inventories->groupBy('type_size.id')->transform(function($item){
             $sumStore = $item->where( 'type', Inventory::STORE )->sum( 'quantity' );
             $sumExit  = $item->where( 'type', Inventory::EXIT )->sum( 'quantity' );
             return $sumStore - $sumExit;
