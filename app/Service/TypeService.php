@@ -10,10 +10,6 @@ class TypeService
 
     public function __construct( TypeRepository $typeRepository ) { $this->typeRepository = $typeRepository; }
 
-    /**
-     * @param array $data
-     * @return array
-     */
     public function store( array $data )
     {
         try {
@@ -26,11 +22,6 @@ class TypeService
         }
     }
 
-    /**
-     * @param array $data
-     * @param $id
-     * @return array
-     */
     public function update( array $data, $model )
     {
         try {
@@ -43,10 +34,6 @@ class TypeService
         }
     }
 
-    /**
-     * @param $id
-     * @return array
-     */
     public function destroy( $id )
     {
         try {
@@ -64,9 +51,6 @@ class TypeService
         }
     }
 
-    /**
-     * @return array
-     */
     public function all()
     {
         try {
@@ -79,9 +63,6 @@ class TypeService
         }
     }
 
-    /**
-     * @return array
-     */
     public function paginate()
     {
         try {
@@ -94,10 +75,6 @@ class TypeService
         }
     }
 
-    /**
-     * @param $id
-     * @return array|\Illuminate\Database\Eloquent\Model|null
-     */
     public function findOne( $id )
     {
         try {

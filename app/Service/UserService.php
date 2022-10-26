@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Models\Inventory;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,10 +14,6 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
-    /**
-     * @param array $data
-     * @return array
-     */
     public function store( array $data )
     {
         try {
@@ -32,11 +27,6 @@ class UserService
         }
     }
 
-    /**
-     * @param array $data
-     * @param $id
-     * @return array
-     */
     public function update( array $data, $id )
     {
         try {
@@ -53,10 +43,6 @@ class UserService
         }
     }
 
-    /**
-     * @param $id
-     * @return array
-     */
     public function destroy( $id )
     {
         try {
@@ -74,9 +60,6 @@ class UserService
         }
     }
 
-    /**
-     * @return array
-     */
     public function all()
     {
         try {
@@ -89,10 +72,6 @@ class UserService
         }
     }
 
-    /**
-     * @param $id
-     * @return array|\Illuminate\Database\Eloquent\Model|null
-     */
     public function findOne( $id )
     {
         try {

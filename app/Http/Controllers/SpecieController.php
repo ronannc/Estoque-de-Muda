@@ -81,8 +81,8 @@ class SpecieController extends Controller
 
     public function show( $id )
     {
-        $data = $this->service->findOne( $id );
-        $data['for_size'] = $this->service->sumInventoryForSize($data->inventories->load('type_size'));
+        $data               = $this->service->findOne( $id );
+        $data[ 'for_size' ] = $this->service->sumInventoryGruopBy( $data->inventories->load( 'type_size' ), 'name' );
         return view( 'specie.show', compact( 'data' ) );
     }
 
@@ -96,6 +96,6 @@ class SpecieController extends Controller
         }
 
         session()->flash( 'status', 'Espécie deletado com sucesso!' );
-        return back();
+        return redirect( route( 'specie.index' ) );
     }
 }

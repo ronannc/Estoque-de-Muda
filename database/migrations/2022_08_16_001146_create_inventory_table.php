@@ -37,6 +37,6 @@ class CreateInventoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists( 'inventory' );
+        Schema::dropIfExists( 'inventories' );
     }
 }

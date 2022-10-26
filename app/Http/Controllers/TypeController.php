@@ -83,6 +83,6 @@ class TypeController extends Controller
         }
 
         session()->flash( 'status', 'Tamanho deletado com sucesso!' );
-        return back();
+        return redirect( route( 'type.index' ) );
     }
 }

@@ -27,10 +27,6 @@ class SpecieService
         ];
     }
 
-    /**
-     * @param array $data
-     * @return array
-     */
     public function store( array $data )
     {
         try {
@@ -43,11 +39,6 @@ class SpecieService
         }
     }
 
-    /**
-     * @param array $data
-     * @param $id
-     * @return array|\Illuminate\Database\Eloquent\Model
-     */
     public function update( array $data, $id )
     {
         try {
@@ -61,10 +52,6 @@ class SpecieService
         }
     }
 
-    /**
-     * @param $id
-     * @return array
-     */
     public function destroy( $id )
     {
         try {
@@ -82,9 +69,6 @@ class SpecieService
         }
     }
 
-    /**
-     * @return array
-     */
     public function all()
     {
         try {
@@ -97,10 +81,6 @@ class SpecieService
         }
     }
 
-    /**
-     * @param $id
-     * @return array|\Illuminate\Database\Eloquent\Model|null
-     */
     public function findOne( $id )
     {
         try {
@@ -120,21 +100,10 @@ class SpecieService
         return $sumStore - $sumExit;
     }
 
-    public function sumInventoryForSize( $inventories )
+    public function sumInventoryGruopBy( $inventories, $groupBy = 'id' )
     {
-        return $inventories->groupBy('type_size.name')->transform(function($item){
-            $sumStore = $item->where( 'type', Inventory::STORE )->sum( 'quantity' );
-            $sumExit  = $item->where( 'type', Inventory::EXIT )->sum( 'quantity' );
-            return  $sumStore - $sumExit;
-        });
-    }
-
-    public function sumInventoryForSizeById( $inventories )
-    {
-        return $inventories->groupBy('type_size.id')->transform(function($item){
-            $sumStore = $item->where( 'type', Inventory::STORE )->sum( 'quantity' );
-            $sumExit  = $item->where( 'type', Inventory::EXIT )->sum( 'quantity' );
-            return $sumStore - $sumExit;
-        });
+        return $inventories->groupBy( 'type_size.' . $groupBy )->transform( function ( $item ) {
+            return $this->sumInventory( $item );
+        } );
     }
 }

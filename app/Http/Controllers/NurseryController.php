@@ -88,6 +88,6 @@ class NurseryController extends Controller
         }
 
         session()->flash( 'status', 'Viveiro deletado com sucesso!' );
-        return back();
+        return redirect( route( 'nursery.index' ) );
     }
 }

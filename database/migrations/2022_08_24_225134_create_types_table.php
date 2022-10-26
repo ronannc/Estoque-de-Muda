@@ -33,6 +33,11 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::table( 'inventories', function ( Blueprint $table ) {
+            $table->dropForeign( 'inventories_type_id_foreign' );
+            $table->dropIndex( 'inventories_type_id_foreign' );
+            $table->dropColumn( 'type_id' );
+        } );
+        Schema::dropIfExists( 'types' );
     }
 }

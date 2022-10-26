@@ -24,10 +24,6 @@ class NurseryService
         ];
     }
 
-    /**
-     * @param array $data
-     * @return array
-     */
     public function store( array $data )
     {
         try {
@@ -40,11 +36,6 @@ class NurseryService
         }
     }
 
-    /**
-     * @param array $data
-     * @param $id
-     * @return array
-     */
     public function update( array $data, $model )
     {
         try {
@@ -57,10 +48,6 @@ class NurseryService
         }
     }
 
-    /**
-     * @param $id
-     * @return array
-     */
     public function destroy( $id )
     {
         try {
@@ -78,9 +65,6 @@ class NurseryService
         }
     }
 
-    /**
-     * @return array
-     */
     public function all()
     {
         try {
@@ -93,10 +77,6 @@ class NurseryService
         }
     }
 
-    /**
-     * @param $id
-     * @return array|\Illuminate\Database\Eloquent\Model|null
-     */
     public function findOne( $id )
     {
         try {

@@ -83,6 +83,6 @@ class GroupController extends Controller
         }
 
         session()->flash( 'status', 'Grupo deletado com sucesso!' );
-        return back();
+        return redirect( route( 'group.index' ) );
     }
 }

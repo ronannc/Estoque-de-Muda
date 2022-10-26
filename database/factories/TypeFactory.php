@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SpecieFactory extends Factory
+class TypeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,9 +14,7 @@ class SpecieFactory extends Factory
     public function definition()
     {
         return [
-            'name'     => $this->faker->firstName(),
-            'specie'   => $this->faker->firstName(),
-            'group_id' => Group::factory(),
+            'name' => $this->faker->colorName(),
         ];
     }
 }
